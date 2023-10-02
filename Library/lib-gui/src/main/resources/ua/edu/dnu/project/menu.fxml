@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="150.0" styleClass="side-menu" stylesheets="@style/menu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.edu.dnu.project.MenuController">
+    <children>
+        <Separator prefWidth="200.0" />
+        <JFXButton buttonType="RAISED" prefHeight="50.0" prefWidth="150.0" styleClass="side-menu-button" stylesheets="@style/menu.css" text="КНИГИ" textFill="#000000cb">
+            <graphic>
+                <FontAwesomeIcon fill="#807474" glyphName="BOOK" size="1.3em" wrappingWidth="30.0" />
+            </graphic>
+            <font>
+                <Font name="Arial Narrow Bold" size="14.0" />
+            </font>
+        </JFXButton>
+        <Separator prefWidth="200.0" />
+        <JFXButton buttonType="RAISED" prefHeight="50.0" prefWidth="150.0" styleClass="side-menu-button" stylesheets="@style/menu.css" text="ВІДВІДУВАЧІ" textFill="#000000cd">
+            <graphic>
+                <FontAwesomeIcon fill="#807474" glyphName="USER" size="1.3em" wrappingWidth="30.0" />
+            </graphic>
+            <font>
+                <Font name="Arial Narrow Bold" size="14.0" />
+            </font>
+        </JFXButton>
+        <Separator prefWidth="200.0" />
+        <JFXButton buttonType="RAISED" prefHeight="50.0" prefWidth="150.0" styleClass="side-menu-button" stylesheets="@style/menu.css" text="ЗАПИСИ" textFill="#000000cb">
+            <graphic>
+                <FontAwesomeIcon fill="#807474" glyphName="TABLE" size="1.3em" wrappingWidth="30.0" />
+            </graphic>
+            <font>
+                <Font name="Arial Narrow Bold" size="14.0" />
+            </font>
+        </JFXButton>
+        <Separator prefWidth="200.0" />
+        <JFXButton buttonType="RAISED" prefHeight="50.0" prefWidth="150.0" styleClass="side-menu-button" stylesheets="@style/menu.css" text="АНАЛІТИКА" textFill="#000000cc">
+            <graphic>
+                <FontAwesomeIcon fill="#807474" glyphName="LINE_CHART" size="1.3em" wrappingWidth="30.0" />
+            </graphic>
+            <font>
+                <Font name="Arial Narrow Bold" size="14.0" />
+            </font>
+        </JFXButton>
+        <Separator prefWidth="200.0">
+            <effect>
+                <Lighting>
+                    <bumpInput>
+                        <Shadow />
+                    </bumpInput>
+                    <light>
+                        <Light.Distant />
+                    </light>
+                </Lighting>
+            </effect>
+        </Separator>
+    </children>
+</VBox>

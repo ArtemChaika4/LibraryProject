@@ -1,0 +1,22 @@
+.side-menu{
+    -fx-background-color:  #58EADE;
+    -fx-pref-height: 600;
+    -fx-pref-width: 200;
+}
+
+.side-menu-button{
+    -fx-background-color:  #58EADE;
+    -fx-border-style: none;
+    -fx-pref-height: 50;
+    -fx-pref-width: 200;
+    -fx-cursor: hand;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.side-menu-button:hover{
+    -fx-background-color: #1EFFED;
+}
+
+.side-menu-button:focused{
+    -fx-background-color: #31c5b6;
+}
