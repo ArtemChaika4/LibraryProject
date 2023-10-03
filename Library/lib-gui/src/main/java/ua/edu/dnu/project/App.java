@@ -22,7 +22,7 @@ public class App extends Application
         Storage storage = new Storage();
         System.out.println(storage.books().getAll());
         System.out.println(storage.users().getAll());
-        System.out.println(storage.records().getAll());\
+        System.out.println(storage.records().getAll());
         launch();
     }
 }
