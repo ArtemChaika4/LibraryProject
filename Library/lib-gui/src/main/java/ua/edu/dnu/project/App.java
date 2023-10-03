@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
-import ua.edu.dnu.project.model.Book;
 
 public class App extends Application
 {
@@ -20,11 +19,10 @@ public class App extends Application
     }
 
     public static void main(String[] args) {
-//        Storage storage = new Storage();
-//        storage.books().create(
-//                new Book("BookTitle", "BookAuthor", "BookGenre", 100, 200));
-//        storage.save();
-//        System.out.println(storage.books().getAll());
+        Storage storage = new Storage();
+        System.out.println(storage.books().getAll());
+        System.out.println(storage.users().getAll());
+        System.out.println(storage.records().getAll());\
         launch();
     }
 }
