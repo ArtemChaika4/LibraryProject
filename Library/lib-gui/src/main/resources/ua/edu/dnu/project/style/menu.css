@@ -14,9 +14,9 @@
 }
 
 .side-menu-button:hover{
-    -fx-background-color: #74b6c0;
+    -fx-background-color: #6cccda;
 }
 
 .side-menu-button:focused{
-    -fx-background-color: #74b6c0;
+    -fx-background-color: #41939d;
 }

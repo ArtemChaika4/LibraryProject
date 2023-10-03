@@ -6,31 +6,25 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.edu.dnu.project.UsersController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #444654;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.edu.dnu.project.UsersController">
    <children>
-      <Button layoutX="536.0" layoutY="15.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="146.0" style="-fx-content-display: right;" text="Додати користувача">
+      <Button layoutX="499.0" layoutY="12.0" mnemonicParsing="false" onAction="#openFillUserMenu" prefHeight="31.0" prefWidth="196.0" style="-fx-content-display: right; -fx-font-size: 15px; -fx-font-family: arial; -fx-font-weight: bold;" stylesheets="@style/btns.css" text="Додати користувача" textFill="#5e5151" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="12.0">
          <graphic>
-            <FontAwesomeIcon glyphName="USER_PLUS" textAlignment="RIGHT" />
-         </graphic></Button>
-      <TextField layoutX="16.0" layoutY="15.0" prefHeight="25.0" prefWidth="300.0" />
-      <Button layoutX="321.0" layoutY="15.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0">
-         <graphic>
-            <FontAwesomeIcon glyphName="TRASH" selectionStart="0" size="1.2em" />
+            <FontAwesomeIcon fill="WHITE" glyphName="USER_PLUS" textAlignment="RIGHT" />
          </graphic>
-      </Button>
-      <Button alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="354.0" layoutY="15.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0">
-         <graphic>
-            <FontAwesomeIcon glyphName="SEARCH" size="1.3em" text="" wrappingWidth="12.328571319580078" />
-         </graphic>
-      </Button>
-      <TableView layoutX="17.0" layoutY="49.0" prefHeight="433.0" prefWidth="665.0">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font></Button>
+      <TextField layoutX="14.0" layoutY="12.0" prefHeight="31.0" prefWidth="300.0" promptText="Пошук" stylesheets="@style/btns.css" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="12.0" />
+      <TableView layoutX="17.0" layoutY="49.0" prefHeight="433.0" prefWidth="665.0" stylesheets="@style/table.css" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="50.0">
         <columns>
-          <TableColumn prefWidth="133.0" text="Ім'я" />
-          <TableColumn prefWidth="133.0" text="Прізвище" />
-            <TableColumn prefWidth="133.0" text="По батькові" />
-            <TableColumn prefWidth="133.0" text="Адрес" />
-            <TableColumn prefWidth="133.0" text="Номер телефону" />
+          <TableColumn prefWidth="121.0" style="-fx-text-fill: #ffffff;" text="Ім'я" />
+          <TableColumn prefWidth="119.0" style="-fx-text-fill: #ffffff;" text="Прізвище" />
+            <TableColumn prefWidth="120.0" style="-fx-text-fill: #ffffff;" text="По батькові" />
+            <TableColumn prefWidth="134.0" style="-fx-text-fill: #ffffff;" text="Адреса" />
+            <TableColumn prefWidth="176.0" style="-fx-text-fill: #ffffff;" text="Номер телефону" />
         </columns>
       </TableView>
    </children>
