@@ -10,19 +10,20 @@ import java.util.Scanner;
 public class DBUtils {
     private static final Gson gson = new Gson();
 
-    public static <E> void readJson(String fileName, List<E> list, Type type){
+    public static <T> T readJson(String fileName, Type type){
         String data = getFileString(fileName);
-        List<E> tmp = gson.fromJson(data, type);
-        if(tmp != null){
-            list.addAll(tmp);
+        T list = gson.fromJson(data, type);
+        if(list == null){
+            throw new IllegalArgumentException();
         }
+        return list;
     }
 
     public static void writeJson(String fileName, Object obj){
         try (PrintWriter printWriter = new PrintWriter(fileName)){
             printWriter.print(gson.toJson(obj));
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            throw new IllegalArgumentException();
         }
     }
 
@@ -50,7 +51,7 @@ public class DBUtils {
         try {
             scanner = new Scanner(new File(fileName));
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            throw new IllegalArgumentException();
         }
         StringBuilder str = new StringBuilder();
         while (scanner.hasNextLine()){

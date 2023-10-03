@@ -21,7 +21,7 @@ public class App extends Application
         Storage storage = new Storage();
         storage.books().create(
                 new Book("BookTitle", "BookAuthor", "BookGenre", 100, 200));
-        storage.save();
+        //storage.save();
         System.out.println(storage.books().getAll());
         launch();
     }
