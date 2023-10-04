@@ -7,7 +7,7 @@ public class Book extends DBEntry {
     private String genre;
     private int bailPrice;
     private int rentalPrice;
-    private Status status;
+    private BookStatus status;
 
     public Book(){
         title = "";
@@ -15,9 +15,9 @@ public class Book extends DBEntry {
         genre = "";
         bailPrice = 0;
         rentalPrice = 0;
-        status = Status.AVAILABLE;
+        status = BookStatus.AVAILABLE;
     }
-    public Book(String title, String author, String genre, int bailPrice, int rentalPrice, Status status) {
+    public Book(String title, String author, String genre, int bailPrice, int rentalPrice, BookStatus status) {
         this.title = title;
         this.author = author;
         this.genre = genre;
@@ -66,18 +66,19 @@ public class Book extends DBEntry {
         this.rentalPrice = rentalPrice;
     }
 
-    public Status getStatus() {
+    public BookStatus getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(BookStatus status) {
         this.status = status;
     }
 
     @Override
     public String toString() {
         return "Book{" +
-                "title='" + title + '\'' +
+                "id='" + getId() + '\'' +
+                ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", genre='" + genre + '\'' +
                 ", bailPrice=" + bailPrice +

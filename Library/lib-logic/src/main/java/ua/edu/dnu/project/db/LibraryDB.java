@@ -5,6 +5,7 @@ import ua.edu.dnu.project.model.Book;
 import ua.edu.dnu.project.model.Record;
 import ua.edu.dnu.project.model.User;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -16,10 +17,11 @@ public class LibraryDB {
     private DBSet<Record> records;
     private static LibraryDB instance;
     private LibraryDB(){
-        properties = DBUtils.getPropertiesFromResource("db/db.properties");
-        load();
+        properties = DBUtils.getPropertiesFromResource("db/db.properties"); //TO load method
+        load(); //TO EXTRACT
     }
 
+    //throws ServiceException
     public void load(){
         List<Book> bookList =
                 DBUtils.readJson(properties.getProperty("books"), new TypeToken<List<Book>>(){}.getType());
@@ -32,9 +34,16 @@ public class LibraryDB {
 
         books = new DBSet<>(bookList, idCounters.get(0));
         users = new DBSet<>(userList, idCounters.get(1));
+        for (Record record : recordList) {
+            int bookId = record.getBook().getId();
+            int userId = record.getUser().getId();
+            record.setBook(books.find(bookId));
+            record.setUser(users.find(userId));
+        }
         records = new DBSet<>(recordList, idCounters.get(2));
     }
 
+    //throws FileNotFoundException
     public void save(){
         DBUtils.writeJson(properties.getProperty("books"), books.getData());
         DBUtils.writeJson(properties.getProperty("users"), users.getData());
@@ -55,7 +64,7 @@ public class LibraryDB {
         return records;
     }
 
-    public static LibraryDB getInstance() {
+    public static LibraryDB getInstance()  {
         if(instance == null){
             instance = new LibraryDB();
         }

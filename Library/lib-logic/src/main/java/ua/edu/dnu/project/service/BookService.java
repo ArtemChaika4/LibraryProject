@@ -12,6 +12,7 @@ public class BookService implements Service<Book> {
     public BookService(){
         books = LibraryDB.getInstance().getBooks();
     }
+
     @Override
     public void create(Book item) {
         books.add(item);
@@ -22,6 +23,7 @@ public class BookService implements Service<Book> {
         return books.getData();
     }
 
+    //throws ServiceException
     @Override
     public Book getById(int id) {
         Book book = books.find(id);
@@ -31,6 +33,7 @@ public class BookService implements Service<Book> {
         return book;
     }
 
+    //throws ServiceException
     @Override
     public void update(Book item) {
         Book book = getById(item.getId());
@@ -41,6 +44,7 @@ public class BookService implements Service<Book> {
         book.setRentalPrice(item.getRentalPrice());
     }
 
+    //throws ServiceException
     @Override
     public void delete(int id) {
         Book book = getById(id);

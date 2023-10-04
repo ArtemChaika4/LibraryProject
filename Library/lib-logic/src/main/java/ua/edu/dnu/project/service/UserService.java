@@ -22,6 +22,7 @@ public class UserService implements Service<User> {
         return users.getData();
     }
 
+    //throws ServiceException
     @Override
     public User getById(int id) {
         User user = users.find(id);
@@ -31,6 +32,7 @@ public class UserService implements Service<User> {
         return user;
     }
 
+    //throws ServiceException
     @Override
     public void update(User item) {
         User user = getById(item.getId());
@@ -41,6 +43,7 @@ public class UserService implements Service<User> {
         user.setPhone(item.getPhone());
     }
 
+    //throws ServiceException
     @Override
     public void delete(int id) {
         User user = getById(id);
