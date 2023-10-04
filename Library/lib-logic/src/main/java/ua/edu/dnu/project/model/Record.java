@@ -9,18 +9,21 @@ public class Record extends DBEntry {
     private User user;
     private Date dateOfIssue;
     private Date dateOfReturn;
+    private RecordStatus status;
 
     public Record(){
         book = new Book();
         user = new User();
         dateOfIssue = new Date(System.currentTimeMillis());
         dateOfReturn = new Date(System.currentTimeMillis());
+        status = RecordStatus.RENTED;
     }
-    public Record(Book book, User user, Date dateOfIssue, Date dateOfReturn) {
+    public Record(Book book, User user, Date dateOfIssue, Date dateOfReturn, RecordStatus status) {
         this.book = book;
         this.user = user;
         this.dateOfIssue = dateOfIssue;
         this.dateOfReturn = dateOfReturn;
+        this.status = status;
     }
 
     public Book getBook() {
@@ -55,10 +58,19 @@ public class Record extends DBEntry {
         this.dateOfReturn = dateOfReturn;
     }
 
+    public RecordStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(RecordStatus status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Record{" +
-                "book=" + book +
+                "id=" + getId() +
+                ", book=" + book +
                 ", user=" + user +
                 ", dateOfIssue=" + dateOfIssue +
                 ", dateOfReturn=" + dateOfReturn +

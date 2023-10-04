@@ -32,6 +32,12 @@ public class LibraryDB {
 
         books = new DBSet<>(bookList, idCounters.get(0));
         users = new DBSet<>(userList, idCounters.get(1));
+        for (Record record : recordList) {
+            int bookId = record.getBook().getId();
+            int userId = record.getUser().getId();
+            record.setBook(books.find(bookId));
+            record.setUser(users.find(userId));
+        }
         records = new DBSet<>(recordList, idCounters.get(2));
     }
 

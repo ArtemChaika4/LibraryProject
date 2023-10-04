@@ -67,7 +67,8 @@ public class User extends DBEntry {
     @Override
     public String toString() {
         return "User{" +
-                "lastname='" + lastname + '\'' +
+                "id='" + getId() + '\'' +
+                ", lastname='" + lastname + '\'' +
                 ", name='" + name + '\'' +
                 ", patronymic='" + patronymic + '\'' +
                 ", address='" + address + '\'' +
