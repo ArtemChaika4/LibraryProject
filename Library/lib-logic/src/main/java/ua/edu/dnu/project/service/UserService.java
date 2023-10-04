@@ -12,8 +12,13 @@ public class UserService implements Service<User> {
         users = LibraryDB.getInstance().getUsers();
     }
 
+    private void validateUser(User user){
+        getByPhone(user.getPhone());
+    }
+
     @Override
     public void create(User item) {
+        validateUser(item);
         users.add(item);
     }
 
@@ -32,6 +37,15 @@ public class UserService implements Service<User> {
         return user;
     }
 
+    public User getByPhone(String phone){
+        for (User user : users.getData()) {
+            if(user.getPhone().equals(phone)){
+                return user;
+            }
+        }
+        throw new IllegalArgumentException();
+    }
+
     //throws ServiceException
     @Override
     public void update(User item) {
@@ -48,5 +62,6 @@ public class UserService implements Service<User> {
     public void delete(int id) {
         User user = getById(id);
         users.remove(user);
+        //remove all user records
     }
 }

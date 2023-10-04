@@ -3,6 +3,7 @@ package ua.edu.dnu.project.service;
 import ua.edu.dnu.project.db.DBSet;
 import ua.edu.dnu.project.db.LibraryDB;
 import ua.edu.dnu.project.model.Book;
+import ua.edu.dnu.project.model.BookStatus;
 
 import java.util.List;
 
@@ -13,8 +14,15 @@ public class BookService implements Service<Book> {
         books = LibraryDB.getInstance().getBooks();
     }
 
+    private void validateBook(Book book){
+        if(book.getStatus() != BookStatus.AVAILABLE){
+            throw new IllegalArgumentException();
+        }
+    }
+
     @Override
     public void create(Book item) {
+        validateBook(item);
         books.add(item);
     }
 
@@ -48,7 +56,8 @@ public class BookService implements Service<Book> {
     @Override
     public void delete(int id) {
         Book book = getById(id);
-        books.remove(book);
+        book.setStatus(BookStatus.DELETED);
+        //books.remove(book);
     }
 
 }

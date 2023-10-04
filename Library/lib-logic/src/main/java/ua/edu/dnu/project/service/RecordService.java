@@ -2,7 +2,7 @@ package ua.edu.dnu.project.service;
 
 import ua.edu.dnu.project.db.DBSet;
 import ua.edu.dnu.project.db.LibraryDB;
-import ua.edu.dnu.project.model.Record;
+import ua.edu.dnu.project.model.*;
 
 import java.util.List;
 
@@ -13,9 +13,22 @@ public class RecordService implements Service<Record> {
         records = LibraryDB.getInstance().getRecords();
     }
 
+    private void validateRecord(Record record){
+        if(record.getStatus() != RecordStatus.RENTED){
+            throw new IllegalArgumentException();
+        }
+        Book book = new BookService().getById(record.getBook().getId());
+        User user = new UserService().getById(record.getUser().getId());
+        if (book.getStatus() == BookStatus.DELETED){
+            throw new IllegalArgumentException();
+        }
+    }
+
     //throws ServiceException
     @Override
     public void create(Record item) {
+        validateRecord(item);
+        item.getBook().setStatus(BookStatus.MISSING);
         records.add(item);
     }
 
@@ -49,5 +62,13 @@ public class RecordService implements Service<Record> {
     public void delete(int id) {
         Record record = getById(id);
         records.remove(record);
+    }
+
+    public void deleteUserRecords(int userId){
+        for (Record record : records.getData()) {
+            if(record.getUser().getId() == userId){
+                records.remove(record);
+            }
+        }
     }
 }
