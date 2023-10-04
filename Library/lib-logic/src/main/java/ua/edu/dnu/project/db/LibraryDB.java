@@ -21,14 +21,14 @@ public class LibraryDB {
     }
 
     public void load(){
-        List<Book> bookList = new ArrayList<>();
-        DBUtils.readJson(properties.getProperty("books"), bookList, new TypeToken<List<Book>>(){}.getType());
-        List<User> userList = new ArrayList<>();
-        DBUtils.readJson(properties.getProperty("users"), userList, new TypeToken<List<User>>(){}.getType());
-        List<Record> recordList = new ArrayList<>();
-        DBUtils.readJson(properties.getProperty("records"), recordList, new TypeToken<List<Record>>(){}.getType());
-        List<Integer> idCounters = new ArrayList<>();
-        DBUtils.readJson(properties.getProperty("id-counters"), idCounters, new TypeToken<List<Integer>>(){}.getType());
+        List<Book> bookList =
+                DBUtils.readJson(properties.getProperty("books"), new TypeToken<List<Book>>(){}.getType());
+        List<User> userList =
+                DBUtils.readJson(properties.getProperty("users"), new TypeToken<List<User>>(){}.getType());
+        List<Record> recordList =
+                DBUtils.readJson(properties.getProperty("records"), new TypeToken<List<Record>>(){}.getType());
+        List<Integer> idCounters =
+                DBUtils.readJson(properties.getProperty("id-counters"), new TypeToken<List<Integer>>(){}.getType());
 
         books = new DBSet<>(bookList, idCounters.get(0));
         users = new DBSet<>(userList, idCounters.get(1));

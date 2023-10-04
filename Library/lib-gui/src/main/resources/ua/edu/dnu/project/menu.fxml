@@ -9,42 +9,42 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="150.0" styleClass="side-menu" stylesheets="@style/menu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.edu.dnu.project.MenuController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="150.0" styleClass="side-menu" stylesheets="@style/menu.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.edu.dnu.project.MenuController">
     <children>
         <Separator prefWidth="200.0" />
-        <JFXButton buttonType="RAISED" prefHeight="50.0" prefWidth="150.0" styleClass="side-menu-button" stylesheets="@style/menu.css" text="КНИГИ" textFill="#000000cb">
+        <JFXButton fx:id="booksBtn" buttonType="FLAT" onAction="#openBooks" prefHeight="50.0" prefWidth="150.0" styleClass="side-menu-button" stylesheets="@style/menu.css" text="КНИГИ" textFill="#000000cb">
             <graphic>
-                <FontAwesomeIcon fill="#807474" glyphName="BOOK" size="1.3em" wrappingWidth="30.0" />
+                <FontAwesomeIcon fill="#3a3b40" glyphName="BOOK" size="1.3em" wrappingWidth="30.0" />
             </graphic>
             <font>
-                <Font name="Arial Narrow Bold" size="14.0" />
+                <Font name="Arial Black" size="18.0" />
             </font>
         </JFXButton>
         <Separator prefWidth="200.0" />
-        <JFXButton buttonType="RAISED" prefHeight="50.0" prefWidth="150.0" styleClass="side-menu-button" stylesheets="@style/menu.css" text="ВІДВІДУВАЧІ" textFill="#000000cd">
+        <JFXButton buttonType="FLAT" onAction="#openUsers" prefHeight="50.0" prefWidth="150.0" styleClass="side-menu-button" stylesheets="@style/menu.css" text="ВІДВІДУВАЧІ" textFill="#000000cd">
             <graphic>
-                <FontAwesomeIcon fill="#807474" glyphName="USER" size="1.3em" wrappingWidth="30.0" />
+                <FontAwesomeIcon fill="#3a3b40" glyphName="USER" size="1.3em" wrappingWidth="30.0" />
             </graphic>
             <font>
-                <Font name="Arial Narrow Bold" size="14.0" />
+                <Font name="Arial Black" size="18.0" />
             </font>
         </JFXButton>
         <Separator prefWidth="200.0" />
-        <JFXButton buttonType="RAISED" prefHeight="50.0" prefWidth="150.0" styleClass="side-menu-button" stylesheets="@style/menu.css" text="ЗАПИСИ" textFill="#000000cb">
+        <JFXButton buttonType="FLAT" prefHeight="50.0" prefWidth="150.0" styleClass="side-menu-button" stylesheets="@style/menu.css" text="ЗАПИСИ" textFill="#000000cb">
             <graphic>
-                <FontAwesomeIcon fill="#807474" glyphName="TABLE" size="1.3em" wrappingWidth="30.0" />
+                <FontAwesomeIcon fill="#3a3b40" glyphName="TABLE" size="1.3em" wrappingWidth="30.0" />
             </graphic>
             <font>
-                <Font name="Arial Narrow Bold" size="14.0" />
+                <Font name="Arial Black" size="18.0" />
             </font>
         </JFXButton>
         <Separator prefWidth="200.0" />
-        <JFXButton buttonType="RAISED" prefHeight="50.0" prefWidth="150.0" styleClass="side-menu-button" stylesheets="@style/menu.css" text="АНАЛІТИКА" textFill="#000000cc">
+        <JFXButton buttonType="FLAT" prefHeight="50.0" prefWidth="150.0" styleClass="side-menu-button" stylesheets="@style/menu.css" text="АНАЛІТИКА" textFill="#000000cc">
             <graphic>
-                <FontAwesomeIcon fill="#807474" glyphName="LINE_CHART" size="1.3em" wrappingWidth="30.0" />
+                <FontAwesomeIcon fill="#3a3b40" glyphName="LINE_CHART" size="1.1em" wrappingWidth="30.0" />
             </graphic>
             <font>
-                <Font name="Arial Narrow Bold" size="14.0" />
+                <Font name="Arial Black" size="18.0" />
             </font>
         </JFXButton>
         <Separator prefWidth="200.0">
