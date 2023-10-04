@@ -13,6 +13,7 @@ public class RecordService implements Service<Record> {
         records = LibraryDB.getInstance().getRecords();
     }
 
+    //throws ServiceException
     @Override
     public void create(Record item) {
         records.add(item);
@@ -23,6 +24,7 @@ public class RecordService implements Service<Record> {
         return records.getData();
     }
 
+    //throws ServiceException
     @Override
     public Record getById(int id) {
         Record record = records.find(id);
@@ -32,6 +34,7 @@ public class RecordService implements Service<Record> {
         return record;
     }
 
+    //throws ServiceException
     @Override
     public void update(Record item) {
         Record record = getById(item.getId());
@@ -41,6 +44,7 @@ public class RecordService implements Service<Record> {
         record.setDateOfReturn(item.getDateOfReturn());
     }
 
+    //throws ServiceException
     @Override
     public void delete(int id) {
         Record record = getById(id);
