@@ -6,34 +6,27 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.edu.dnu.project.BooksController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #444654;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.edu.dnu.project.BooksController">
    <children>
-      <TableView layoutX="17.0" layoutY="45.0" prefHeight="435.0" prefWidth="665.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="50.0">
+      <TableView layoutX="15.0" layoutY="51.0" prefHeight="435.0" prefWidth="665.0" stylesheets="@style/table.css" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="51.0">
          <columns>
-            <TableColumn prefWidth="134.0" text="Назва" />
-            <TableColumn prefWidth="134.0" text="Автор" />
-            <TableColumn prefWidth="134.0" text="Жанр" />
-            <TableColumn prefWidth="134.0" text="Залог" />
-            <TableColumn prefWidth="134.0" text="Ціна прокату" />
+            <TableColumn prefWidth="124.0" text="Назва" />
+            <TableColumn prefWidth="138.0" text="Автор" />
+            <TableColumn prefWidth="133.0" text="Жанр" />
+            <TableColumn prefWidth="104.0" text="Залог" />
+            <TableColumn prefWidth="171.0" text="Ціна прокату" />
          </columns>
       </TableView>
-      <Button layoutX="536.0" layoutY="16.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="146.0" style="-fx-content-display: right;" text="Додати книгу" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+      <Button layoutX="536.0" layoutY="16.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="153.0" style="-fx-content-display: right; -fx-font-size: 15px; -fx-font-family: arial; -fx-font-weight: bold;" stylesheets="@style/btns.css" text="Додати книгу" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
          <graphic>
-            <FontAwesomeIcon glyphName="BOOK" textAlignment="RIGHT" />
+            <FontAwesomeIcon fill="WHITE" glyphName="BOOK" textAlignment="RIGHT" wrappingWidth="27.928571701049805" />
          </graphic>
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
       </Button>
-      <TextField layoutX="16.0" layoutY="16.0" prefHeight="25.0" prefWidth="300.0" promptText="Пошук" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" />
-      <Button layoutX="321.0" layoutY="16.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="15.0">
-         <graphic>
-            <FontAwesomeIcon glyphName="TRASH" selectionStart="0" size="1.2em" />
-         </graphic>
-      </Button>
-      <Button alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="356.0" layoutY="16.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" AnchorPane.leftAnchor="353.0" AnchorPane.topAnchor="15.0">
-         <graphic>
-            <FontAwesomeIcon glyphName="SEARCH" size="1.3em" text="" wrappingWidth="12.328571319580078" />
-         </graphic>
-      </Button>
+      <TextField layoutX="16.0" layoutY="16.0" prefHeight="25.0" prefWidth="300.0" promptText="Пошук" stylesheets="@style/btns.css" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" />
    </children>
 </AnchorPane>
