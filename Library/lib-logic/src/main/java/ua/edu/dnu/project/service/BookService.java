@@ -2,6 +2,7 @@ package ua.edu.dnu.project.service;
 
 import ua.edu.dnu.project.db.DBSet;
 import ua.edu.dnu.project.db.LibraryDB;
+import ua.edu.dnu.project.exception.ServiceException;
 import ua.edu.dnu.project.model.Book;
 import ua.edu.dnu.project.model.BookStatus;
 
@@ -14,15 +15,8 @@ public class BookService implements Service<Book> {
         books = LibraryDB.getInstance().getBooks();
     }
 
-    private void validateBook(Book book){
-        if(book.getStatus() != BookStatus.AVAILABLE){
-            throw new IllegalArgumentException();
-        }
-    }
-
     @Override
     public void create(Book item) {
-        validateBook(item);
         books.add(item);
     }
 
@@ -33,17 +27,17 @@ public class BookService implements Service<Book> {
 
     //throws ServiceException
     @Override
-    public Book getById(int id) {
+    public Book getById(int id) throws ServiceException {
         Book book = books.find(id);
         if(book == null) {
-            throw new IllegalArgumentException();
+            throw new ServiceException("Book not found, id: " + id);
         }
         return book;
     }
 
     //throws ServiceException
     @Override
-    public void update(Book item) {
+    public void update(Book item) throws ServiceException {
         Book book = getById(item.getId());
         book.setTitle(item.getTitle());
         book.setAuthor(item.getAuthor());
@@ -54,7 +48,7 @@ public class BookService implements Service<Book> {
 
     //throws ServiceException
     @Override
-    public void delete(int id) {
+    public void delete(int id) throws ServiceException {
         Book book = getById(id);
         book.setStatus(BookStatus.DELETED);
         //books.remove(book);

@@ -2,6 +2,7 @@ package ua.edu.dnu.project.service;
 
 import ua.edu.dnu.project.db.DBSet;
 import ua.edu.dnu.project.db.LibraryDB;
+import ua.edu.dnu.project.exception.ServiceException;
 import ua.edu.dnu.project.model.*;
 
 import java.util.List;
@@ -13,17 +14,17 @@ public class RecordService implements Service<Record> {
         records = LibraryDB.getInstance().getRecords();
     }
 
-    private void validateRecord(Record record){
+    private void validateRecord(Record record) throws ServiceException {
         Book book = new BookService().getById(record.getBook().getId());
         User user = new UserService().getById(record.getUser().getId());
         if (book.getStatus() == BookStatus.DELETED){
-            throw new IllegalArgumentException();
+            throw new ServiceException("Cannot rent deleted book");
         }
     }
 
     //throws ServiceException
     @Override
-    public void create(Record item) {
+    public void create(Record item) throws ServiceException {
         validateRecord(item);
         item.setStatus(RecordStatus.RENTED);
         item.getBook().setStatus(BookStatus.MISSING);
@@ -37,17 +38,17 @@ public class RecordService implements Service<Record> {
 
     //throws ServiceException
     @Override
-    public Record getById(int id) {
+    public Record getById(int id) throws ServiceException {
         Record record = records.find(id);
         if(record == null){
-            throw new IllegalArgumentException();
+            throw new ServiceException("Record not found, id: " + id);
         }
         return record;
     }
 
     //throws ServiceException
     @Override
-    public void update(Record item) {
+    public void update(Record item) throws ServiceException {
         validateRecord(item);
         Record record = getById(item.getId());
         record.setBook(item.getBook());
@@ -58,7 +59,7 @@ public class RecordService implements Service<Record> {
 
     //throws ServiceException
     @Override
-    public void delete(int id) {
+    public void delete(int id) throws ServiceException {
         Record record = getById(id);
         records.remove(record);
     }

@@ -5,6 +5,8 @@ import ua.edu.dnu.project.service.BookService;
 import ua.edu.dnu.project.service.RecordService;
 import ua.edu.dnu.project.service.UserService;
 
+import java.io.FileNotFoundException;
+
 public class Storage {
     private BookService bookService;
     private UserService userService;
@@ -31,7 +33,7 @@ public class Storage {
         return recordService;
     }
 
-    public void save(){
+    public void save() throws FileNotFoundException {
         LibraryDB.getInstance().save();
     }
 }
