@@ -2,10 +2,11 @@ package ua.edu.dnu.project.db;
 
 import com.google.gson.Gson;
 import ua.edu.dnu.project.exception.ServiceException;
-
 import java.io.*;
 import java.lang.reflect.Type;
-import java.util.List;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Properties;
 import java.util.Scanner;
 
@@ -20,6 +21,21 @@ public class DBUtils {
             throw new ServiceException("Не вдалося завантажити дані. Файл пошкоджено: " + fileName);
         }
         return list;
+    }
+
+    private static void createIfNotExists(String fileName) throws FileNotFoundException {
+        Path path = Paths.get(fileName);
+        if(!Files.exists(path)){
+            boolean isCounterList = fileName.equals(
+                    getPropertiesFromResource("db.properties").getProperty("id-counters"));
+            String initialData = isCounterList ? "[0,0,0]" : "[]";
+            try {
+                Files.createDirectories(Paths.get("db", "json"));
+                Files.write(path, initialData.getBytes());
+            } catch (IOException ex) {
+                throw new FileNotFoundException("Неможливо відновити файл з даними: " + fileName);
+            }
+        }
     }
 
     //throws FileNotFoundException
@@ -54,12 +70,8 @@ public class DBUtils {
 
     //throws FileNotFoundException
     public static String getFileString(String fileName) throws FileNotFoundException {
-        Scanner scanner = null;
-        try {
-            scanner = new Scanner(new File(fileName));
-        } catch (FileNotFoundException e) {
-            throw new FileNotFoundException("Не вдалося зчитати дані. Файл не знайдено " + fileName);
-        }
+        createIfNotExists(fileName);
+        Scanner scanner = new Scanner(new File(fileName));
         StringBuilder str = new StringBuilder();
         while (scanner.hasNextLine()){
             str.append(scanner.nextLine()).append("\n");

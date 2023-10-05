@@ -44,6 +44,7 @@ public class MainPaneController {
         Parent root = null;
         try {
             root = fxmlLoader.load();
+            root.requestFocus();    //dont work
         }catch (Exception e){
             e.printStackTrace();
         }
