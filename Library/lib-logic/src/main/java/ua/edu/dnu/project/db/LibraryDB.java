@@ -49,6 +49,13 @@ public class LibraryDB {
         DBUtils.writeJson(properties.getProperty("id-counters"), idCounters);
     }
 
+    public void clear() throws FileNotFoundException {
+        books = new DBSet<>(new ArrayList<>(), 0);
+        users = new DBSet<>(new ArrayList<>(), 0);
+        records = new DBSet<>(new ArrayList<>(), 0);
+        save();
+    }
+
     public DBSet<Book> getBooks() {
         return books;
     }
