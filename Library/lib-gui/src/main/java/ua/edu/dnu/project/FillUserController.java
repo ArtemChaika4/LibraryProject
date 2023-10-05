@@ -1,8 +1,11 @@
 package ua.edu.dnu.project;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import ua.edu.dnu.project.exception.ServiceException;
 import ua.edu.dnu.project.model.User;
+import ua.edu.dnu.project.service.UserService;
 
 
 // number has 13 symbols
@@ -25,11 +28,22 @@ public class FillUserController {
         if (areAllValidatedFieldsOkay()) {
 
             User user = new User(surname.getText(), name.getText(), patronymic.getText(), address.getText(), "+38" + phone.getText());
-            Storage strg = new Storage();
-            strg.users().create(user);
+
+            //Storage strg = new Storage(); --> DEPRECATED
+            //strg.users().create(user);
             //убрать в конце
-            strg.save();
-            MainPaneController.getInstance().setContent("users.fxml");
+            //strg.save(); --> unnecessary
+
+            UserService userService = new UserService();
+            try {
+                userService.create(user);
+                MainPaneController.getInstance().setContent("users.fxml");
+            } catch (ServiceException e) {  //User already added
+                //view massage
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText(e.getMessage());
+                alert.showAndWait();
+            }
         } else {
             //handle
         }
@@ -47,7 +61,7 @@ public class FillUserController {
 
     private boolean isBorderColorGreen(TextField textField) {
         String borderColor = textField.getStyle();
-        return borderColor == null || borderColor.isEmpty() || borderColor.contains("-fx-border-color: green;");
+        return borderColor.contains("-fx-border-color: green;");
     }
 
     @FXML

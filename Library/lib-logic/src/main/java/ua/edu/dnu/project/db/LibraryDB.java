@@ -1,6 +1,7 @@
 package ua.edu.dnu.project.db;
 
 import com.google.gson.reflect.TypeToken;
+import ua.edu.dnu.project.exception.ServiceException;
 import ua.edu.dnu.project.model.Book;
 import ua.edu.dnu.project.model.Record;
 import ua.edu.dnu.project.model.User;
@@ -11,18 +12,15 @@ import java.util.List;
 import java.util.Properties;
 
 public class LibraryDB {
-    private final Properties properties;
     private DBSet<Book> books;
     private DBSet<User> users;
     private DBSet<Record> records;
+    private boolean isLoaded;
     private static LibraryDB instance;
-    private LibraryDB(){
-        properties = DBUtils.getPropertiesFromResource("db/db.properties"); //TO load method
-        load(); //TO EXTRACT
-    }
+    private LibraryDB(){}
 
-    //throws ServiceException
-    public void load(){
+    public void load() throws FileNotFoundException, ServiceException {
+        Properties properties = DBUtils.getPropertiesFromResource("db/db.properties");
         List<Book> bookList =
                 DBUtils.readJson(properties.getProperty("books"), new TypeToken<List<Book>>(){}.getType());
         List<User> userList =
@@ -32,6 +30,10 @@ public class LibraryDB {
         List<Integer> idCounters =
                 DBUtils.readJson(properties.getProperty("id-counters"), new TypeToken<List<Integer>>(){}.getType());
 
+        if(idCounters.size() < 3){
+            throw new ServiceException("Порушено порядок генерації унікальних номерів (id)");
+        }
+        System.out.println(idCounters);
         books = new DBSet<>(bookList, idCounters.get(0));
         users = new DBSet<>(userList, idCounters.get(1));
         for (Record record : recordList) {
@@ -41,15 +43,26 @@ public class LibraryDB {
             record.setUser(users.find(userId));
         }
         records = new DBSet<>(recordList, idCounters.get(2));
+        isLoaded = true;
     }
 
-    //throws FileNotFoundException
-    public void save(){
+    public void save() throws FileNotFoundException {
+        if(!isLoaded()){
+            return;
+        }
+        Properties properties = DBUtils.getPropertiesFromResource("db/db.properties");
         DBUtils.writeJson(properties.getProperty("books"), books.getData());
         DBUtils.writeJson(properties.getProperty("users"), users.getData());
         DBUtils.writeJson(properties.getProperty("records"), records.getData());
         List<Integer> idCounters = List.of(books.getIdCounter(), users.getIdCounter(), records.getIdCounter());
         DBUtils.writeJson(properties.getProperty("id-counters"), idCounters);
+    }
+
+    public void clear() {
+        books = new DBSet<>(new ArrayList<>(), 0);
+        users = new DBSet<>(new ArrayList<>(), 0);
+        records = new DBSet<>(new ArrayList<>(), 0);
+        isLoaded = true;
     }
 
     public DBSet<Book> getBooks() {
@@ -62,6 +75,10 @@ public class LibraryDB {
 
     public DBSet<Record> getRecords() {
         return records;
+    }
+
+    public boolean isLoaded(){
+        return isLoaded;
     }
 
     public static LibraryDB getInstance()  {
