@@ -33,7 +33,7 @@ public class LibraryDB {
         if(idCounters.size() < 3){
             throw new ServiceException("Порушено порядок генерації унікальних номерів (id)");
         }
-        System.out.println(idCounters);
+
         books = new DBSet<>(bookList, idCounters.get(0));
         users = new DBSet<>(userList, idCounters.get(1));
         for (Record record : recordList) {

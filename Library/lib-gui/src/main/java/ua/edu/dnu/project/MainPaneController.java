@@ -4,9 +4,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 
+import java.util.Objects;
+
 public class MainPaneController {
     private BorderPane pane;
     private String contentFileName;
+    private Object contentController;
     private static MainPaneController instance;
 
     private MainPaneController(){}
@@ -44,10 +47,15 @@ public class MainPaneController {
         Parent root = null;
         try {
             root = fxmlLoader.load();
-            root.setFocusTraversable(true);  //dont work
+            contentController = fxmlLoader.getController();
+            root.setFocusTraversable(true);
         }catch (Exception e){
             e.printStackTrace();
         }
         return root;
+    }
+
+    public Object getContentController() {
+        return contentController;
     }
 }
