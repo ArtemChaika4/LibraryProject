@@ -33,6 +33,15 @@ public class UsersController{
     }
     @FXML
     private void initialize() throws IOException {
+        usersTable.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) {
+                User user = usersTable.getSelectionModel().getSelectedItem();
+                if (user != null) {
+                    System.out.println(user.toString());
+                    //как дальше хз))
+                }
+            }
+        });
         List<User> userList = new UserService().getAll();
         ObservableList<User> observableUserList = FXCollections.observableArrayList(userList);
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -42,4 +51,6 @@ public class UsersController{
         phoneColumn.setCellValueFactory(new PropertyValueFactory<>("phone"));
         usersTable.setItems(observableUserList);
     }
+
+
 }
