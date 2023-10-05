@@ -1,22 +1,23 @@
 .side-menu{
-    -fx-background-color: #74b6c0;
+    -fx-background-color: #444654;
     -fx-pref-height: 600;
     -fx-pref-width: 200;
 }
 
 .side-menu-button{
-    -fx-background-color: #74b6c0;
+    -fx-background-color: #343541;
     -fx-border-style: none;
     -fx-pref-height: 50;
     -fx-pref-width: 200;
+    -fx-text-fill: white;
     -fx-cursor: hand;
     -fx-alignment: CENTER_LEFT;
 }
 
 .side-menu-button:hover{
-    -fx-background-color: #74b6c0;
+    -fx-background-color: #b8b9c3;
 }
 
 .side-menu-button:focused{
-    -fx-background-color: #74b6c0;
+    -fx-background-color: #797b86;
 }

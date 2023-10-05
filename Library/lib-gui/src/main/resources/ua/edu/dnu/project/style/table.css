@@ -1,0 +1,51 @@
+.table-view {
+    -fx-background-color: #343541;
+    -fx-border-width: 5px;
+    -fx-border-color: #343541;
+    -fx-border-radius: 15px;
+    -fx-font-size: 15px;
+}
+
+.corner {
+    -fx-background-color: #343541;
+}
+
+
+.table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+}
+
+.table-row-cell:even{
+    -fx-background-color: #444654;
+
+}
+
+.table-row-cell:odd{
+    -fx-background-color: #444654;
+}
+.increment-button{
+    -fx-background-color: #343541;
+}
+
+.scroll-bar {
+    -fx-background-color: #343541;
+    -fx-padding: 5px;
+}
+
+.thumb{
+    -fx-background-color: #b8b9c3;
+}
+
+.column-header {
+    -fx-background-color: #343541;
+}
+
+.column-header .label{
+    -fx-text-fill: #ffffff;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: #343541;
+    -fx-padding: 0 0 5px 0;
+}
