@@ -19,7 +19,7 @@
             <TableColumn prefWidth="171.0" text="Ціна прокату" />
          </columns>
       </TableView>
-      <Button layoutX="536.0" layoutY="16.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="153.0" style="-fx-content-display: right; -fx-font-size: 15px; -fx-font-family: arial; -fx-font-weight: bold;" stylesheets="@style/btns.css" text="Додати книгу" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+      <Button layoutX="536.0" layoutY="16.0" mnemonicParsing="false" onAction="#openFillUserMenu" prefHeight="27.0" prefWidth="153.0" style="-fx-content-display: right; -fx-font-size: 15px; -fx-font-family: arial; -fx-font-weight: bold;" stylesheets="@style/btns.css" text="Додати книгу" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
          <graphic>
             <FontAwesomeIcon fill="WHITE" glyphName="BOOK" textAlignment="RIGHT" wrappingWidth="27.928571701049805" />
          </graphic>
@@ -27,6 +27,6 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Button>
-      <TextField layoutX="16.0" layoutY="16.0" prefHeight="25.0" prefWidth="300.0" promptText="Пошук" stylesheets="@style/btns.css" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" />
+      <TextField layoutX="16.0" layoutY="16.0" prefHeight="30.0" prefWidth="300.0" promptText="   Пошук" stylesheets="@style/btns.css" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
    </children>
 </AnchorPane>

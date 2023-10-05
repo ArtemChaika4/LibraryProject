@@ -14,8 +14,6 @@
 
 .text-field{
     -fx-background-color: #343541;
-    -fx-border-radius: 15px;
     -fx-background-radius: 15px;
-    -fx-border-width: 3px;
     -fx-prompt-text-fill: white;
 }
