@@ -10,7 +10,6 @@ import ua.edu.dnu.project.service.UserService;
 
 // number has 13 symbols
 public class FillUserController {
-
     @FXML
     private TextField name;
     @FXML
@@ -45,23 +44,31 @@ public class FillUserController {
                 alert.showAndWait();
             }
         } else {
-            //handle
+            //ЕЩВЩ: handle
         }
     }
 
-    private boolean areAllValidatedFieldsOkay() {
-        boolean nameValid = isBorderColorGreen(name);
-        boolean surnameValid = isBorderColorGreen(surname);
-        boolean patronymicValid = isBorderColorGreen(patronymic);
-        boolean addressValid = isBorderColorGreen(address);
-        boolean phoneValid = isBorderColorGreen(phone);
+    private boolean isMatchesRegexNSP(TextField value){
 
-        return nameValid && surnameValid && patronymicValid && addressValid && phoneValid;
+        return value.getText().matches("^[А-ЯЇҐЄІ]('?[а-яїієґ]){1,30}$");
     }
 
-    private boolean isBorderColorGreen(TextField textField) {
-        String borderColor = textField.getStyle();
-        return borderColor.contains("-fx-border-color: green;");
+    private boolean isMatchesRegexAddress(TextField value){
+        return value.getText().matches("^[А-ЯЇҐЄІ]('?[а-яїієґ0-9\\s]){6,50}$");
+    }
+
+    private  boolean isMatchesRegexPhone(TextField value){
+        return value.getText().matches("^[0-9]+$");
+    }
+
+    private boolean areAllValidatedFieldsOkay() {
+        boolean nameValid = isMatchesRegexNSP(name);
+        boolean surnameValid = isMatchesRegexNSP(surname);
+        boolean patronymicValid = isMatchesRegexNSP(patronymic);
+        boolean addressValid = isMatchesRegexAddress(address);
+        boolean phoneValid = isMatchesRegexPhone(phone);
+
+        return nameValid && surnameValid && patronymicValid && addressValid && phoneValid;
     }
 
     @FXML
@@ -82,6 +89,7 @@ public class FillUserController {
                 }
                 else {
                     textField.setStyle("-fx-border-color: green;");
+                    textField.setText(address);
                 }
             }
             else{
@@ -97,6 +105,7 @@ public class FillUserController {
                     textField.setStyle("-fx-border-color: red;");
                 } else {
                     textField.setStyle("-fx-border-color: green;");
+                    textField.setText(phoneNumber);
                 }
             } else {
                 textField.setStyle("-fx-border-color: none");
@@ -109,6 +118,7 @@ public class FillUserController {
                 String text = newValue;
                 if (!text.matches("^[А-ЯЇҐЄІ]('?[а-яїієґ]){1,30}$")) {
                     textField.setStyle("-fx-border-color: red;");
+                    textField.setText(text);
                 }
                 else {
                     textField.setStyle("-fx-border-color: green;");
