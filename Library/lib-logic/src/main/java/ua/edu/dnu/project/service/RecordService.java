@@ -14,9 +14,6 @@ public class RecordService implements Service<Record> {
     }
 
     private void validateRecord(Record record){
-        if(record.getStatus() != RecordStatus.RENTED){
-            throw new IllegalArgumentException();
-        }
         Book book = new BookService().getById(record.getBook().getId());
         User user = new UserService().getById(record.getUser().getId());
         if (book.getStatus() == BookStatus.DELETED){
@@ -28,6 +25,7 @@ public class RecordService implements Service<Record> {
     @Override
     public void create(Record item) {
         validateRecord(item);
+        item.setStatus(RecordStatus.RENTED);
         item.getBook().setStatus(BookStatus.MISSING);
         records.add(item);
     }
@@ -50,6 +48,7 @@ public class RecordService implements Service<Record> {
     //throws ServiceException
     @Override
     public void update(Record item) {
+        validateRecord(item);
         Record record = getById(item.getId());
         record.setBook(item.getBook());
         record.setUser(item.getUser());

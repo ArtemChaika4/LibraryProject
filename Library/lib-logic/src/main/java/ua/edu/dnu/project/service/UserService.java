@@ -13,7 +13,12 @@ public class UserService implements Service<User> {
     }
 
     private void validateUser(User user){
-        getByPhone(user.getPhone());
+        try {
+            getByPhone(user.getPhone());
+        }catch (IllegalArgumentException exception){
+            return;
+        }
+        throw new IllegalArgumentException();
     }
 
     @Override
