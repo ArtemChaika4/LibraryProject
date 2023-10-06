@@ -16,13 +16,12 @@
     -fx-padding: 2 0 2 10px;
 }
 
-.table-row-cell:even{
+.table-row-cell{
     -fx-background-color: #444654;
-
 }
 
-.table-row-cell:odd{
-    -fx-background-color: #444654;
+.table-row-cell:selected{
+    -fx-background-color: #35363f;
 }
 .increment-button{
     -fx-background-color: #343541;
