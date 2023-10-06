@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane alignment="TOP_CENTER" style="-fx-background-color: #343541;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.edu.dnu.project.EditBookController">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="600.0" style="-fx-background-color: #343541;" stylesheets="@style/userFill.css">
+         <children>
+            <TextField fx:id="phone" layoutX="30.0" layoutY="203.0" prefHeight="35.0" prefWidth="230.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="210.0" />
+            <TextField fx:id="name" layoutX="29.0" layoutY="51.0" prefHeight="35.0" prefWidth="230.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="50.0" />
+            <TextField fx:id="address" layoutX="290.0" layoutY="126.0" prefHeight="35.0" prefWidth="230.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="130.0" />
+            <TextField fx:id="patronymic" layoutX="30.0" layoutY="127.0" prefHeight="35.0" prefWidth="230.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="130.0" />
+            <TextField fx:id="surname" layoutX="278.0" layoutY="31.0" prefHeight="35.0" prefWidth="230.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="50.0" />
+            <Button layoutX="19.0" layoutY="302.0" mnemonicParsing="false" onAction="#saveBook" prefHeight="50.0" prefWidth="540.0" style="-fx-content-display: right;" text="Зареєструвати" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="USER_PLUS" />
+               </graphic>
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label layoutX="30.0" layoutY="30.0" text="Ім'я" textFill="WHITE" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0" />
+            <Label layoutX="294.0" layoutY="30.0" text="Прізвище" textFill="WHITE" AnchorPane.leftAnchor="340.0" AnchorPane.topAnchor="30.0" />
+            <Label layoutX="29.0" layoutY="109.0" text="По батькові" textFill="WHITE" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="110.0" />
+            <Label layoutX="350.0" layoutY="184.0" text="Адреса" textFill="WHITE" AnchorPane.leftAnchor="340.0" AnchorPane.topAnchor="110.0" />
+            <Label layoutX="88.0" layoutY="261.0" text="Номер телефону (+38)-ХХХ-XXX-XX-XX" textFill="WHITE" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="190.0" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </AnchorPane>
+      <StackPane alignment="TOP_CENTER" style="-fx-background-color: #343541;">
+         <children>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="600.0" style="-fx-background-color: #343541;" stylesheets="@style/userFill.css">
+               <children>
+                  <TextField fx:id="rentalPrice" layoutX="30.0" layoutY="203.0" prefHeight="35.0" prefWidth="230.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="210.0" />
+                  <TextField fx:id="title" layoutX="29.0" layoutY="51.0" prefHeight="35.0" prefWidth="230.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="50.0" />
+                  <TextField fx:id="bailPrice" layoutX="290.0" layoutY="126.0" prefHeight="35.0" prefWidth="230.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="130.0" />
+                  <TextField fx:id="genre" layoutX="30.0" layoutY="127.0" prefHeight="35.0" prefWidth="230.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="130.0" />
+                  <TextField fx:id="author" layoutX="278.0" layoutY="31.0" prefHeight="35.0" prefWidth="230.0" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="50.0" />
+                  <Button layoutX="19.0" layoutY="302.0" mnemonicParsing="false" onAction="#saveBook" prefHeight="50.0" prefWidth="540.0" style="-fx-content-display: right;" text="Зберегти" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" glyphName="USER_PLUS" />
+                     </graphic>
+                     <font>
+                        <Font name="Arial Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="30.0" layoutY="30.0" text="Назва" textFill="WHITE" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0" />
+                  <Label layoutX="294.0" layoutY="30.0" text="Автор" textFill="WHITE" AnchorPane.leftAnchor="340.0" AnchorPane.topAnchor="30.0" />
+                  <Label layoutX="29.0" layoutY="109.0" text="Жанр" textFill="WHITE" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="110.0" />
+                  <Label layoutX="350.0" layoutY="184.0" text="Залог (грн)" textFill="WHITE" AnchorPane.leftAnchor="340.0" AnchorPane.topAnchor="110.0" />
+                  <Label layoutX="88.0" layoutY="261.0" text="Ціна аренди (грн)" textFill="WHITE" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="190.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+   </children>
+</StackPane>

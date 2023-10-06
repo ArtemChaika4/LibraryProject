@@ -23,8 +23,8 @@
           <TableColumn fx:id="nameColumn" prefWidth="125.0" resizable="false" style="-fx-text-fill: #ffffff;" text="Ім'я" />
           <TableColumn fx:id="lastnameColumn" prefWidth="125.0" resizable="false" style="-fx-text-fill: #ffffff;" text="Прізвище" />
             <TableColumn fx:id="patronymicColumn" prefWidth="125.0" resizable="false" style="-fx-text-fill: #ffffff;" text="По батькові" />
-            <TableColumn fx:id="addressColumn" prefWidth="125.0" resizable="false" style="-fx-text-fill: #ffffff;" text="Адреса" />
-            <TableColumn fx:id="phoneColumn" prefWidth="157.0" resizable="false" style="-fx-text-fill: #ffffff;" text="Номер телефону" />
+            <TableColumn fx:id="addressColumn" prefWidth="131.0" resizable="false" style="-fx-text-fill: #ffffff;" text="Адреса" />
+            <TableColumn fx:id="phoneColumn" prefWidth="153.0" resizable="false" style="-fx-text-fill: #ffffff;" text="Номер телефону" />
         </columns>
       </TableView>
    </children>

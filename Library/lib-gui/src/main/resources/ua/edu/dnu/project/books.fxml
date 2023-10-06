@@ -12,11 +12,11 @@
    <children>
       <TableView fx:id="booksTable" layoutX="15.0" layoutY="51.0" prefHeight="435.0" prefWidth="665.0" stylesheets="@style/table.css" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="51.0">
          <columns>
-            <TableColumn fx:id="titleColumn" prefWidth="124.0" text="Назва" />
-            <TableColumn fx:id="authorColumn" prefWidth="138.0" text="Автор" />
-            <TableColumn fx:id="genreColumn" prefWidth="133.0" text="Жанр" />
-            <TableColumn fx:id="bailColumn" prefWidth="104.0" text="Залог" />
-            <TableColumn fx:id="rentalColumn" prefWidth="171.0" text="Ціна прокату" />
+            <TableColumn fx:id="titleColumn" prefWidth="125.0" style="-fx-text-fill: white;" text="Назва" />
+            <TableColumn fx:id="authorColumn" prefWidth="125.0" style="-fx-text-fill: white;" text="Автор" />
+            <TableColumn fx:id="genreColumn" prefWidth="134.0" style="-fx-text-fill: white;" text="Жанр" />
+            <TableColumn fx:id="bailColumn" minWidth="6.0" prefWidth="108.0" style="-fx-text-fill: white;" text="Залог" />
+            <TableColumn fx:id="rentalColumn" editable="false" prefWidth="118.0" style="-fx-text-fill: white;" text="Ціна прокату" />
          </columns>
       </TableView>
       <Button layoutX="536.0" layoutY="16.0" mnemonicParsing="false" onAction="#openFillUserMenu" prefHeight="27.0" prefWidth="153.0" style="-fx-content-display: right; -fx-font-size: 15px; -fx-font-family: arial; -fx-font-weight: bold;" stylesheets="@style/btns.css" text="Додати книгу" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">

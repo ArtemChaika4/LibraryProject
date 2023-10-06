@@ -15,7 +15,6 @@
     -fx-border-color: transparent;
     -fx-padding: 2 0 2 10px;
 }
-
 .table-row-cell{
     -fx-background-color: #444654;
 }
@@ -42,6 +41,10 @@
 
 .column-header .label{
     -fx-text-fill: #ffffff;
+}
+
+.table-view .column-header-background .filler{
+    -fx-background-color: transparent;
 }
 
 .table-view .column-header-background{

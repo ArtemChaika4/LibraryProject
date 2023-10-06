@@ -20,7 +20,7 @@ public class EditUserController {
 
     // add validation
     public void loadUser(User _user) {
-        user = _user;
+        this.user = user;
         name.setText(user.getName());
         surname.setText(user.getLastname());
         patronymic.setText(user.getPatronymic());
@@ -29,7 +29,7 @@ public class EditUserController {
     }
 
     public void saveUser() {
-        if(areAllValidatedFieldsOkay()){
+        if(Validation.areAllValidatedFieldsUser(name, surname, patronymic, address, phone)){
             user.setName(name.getText());
             user.setLastname(name.getText());
             user.setPatronymic(patronymic.getText());
@@ -37,21 +37,7 @@ public class EditUserController {
             user.setPhone("+38" + phone.getText());
             MainPaneController.getInstance().setContent("users.fxml");
         }
-        else{
-            return;
-        }
     }
-
-    private boolean areAllValidatedFieldsOkay() {
-        boolean nameValid = Validation.isMatchesRegexNSP(name);
-        boolean surnameValid = Validation.isMatchesRegexNSP(surname);
-        boolean patronymicValid = Validation.isMatchesRegexNSP(patronymic);
-        boolean addressValid = Validation.isMatchesRegexAddress(address);
-        boolean phoneValid = Validation.isMatchesRegexPhone(phone);
-
-        return nameValid && surnameValid && patronymicValid && addressValid && phoneValid;
-    }
-
     @FXML
     private void initialize() {
         Validation.addUppercaseValidation(name);

@@ -7,26 +7,25 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import ua.edu.dnu.project.model.User;
-import ua.edu.dnu.project.service.UserService;
+import ua.edu.dnu.project.model.Book;
+import ua.edu.dnu.project.service.BookService;
 
 import java.io.IOException;
 import java.util.List;
 
 public class BooksController {
-
     @FXML
-    private TableColumn<User, String> titleColumn;
+    private TableColumn<Book, String> titleColumn;
     @FXML
-    private TableColumn<User, String> authorColumn;
+    private TableColumn<Book, String> authorColumn;
     @FXML
-    private TableColumn<User, String> genreColumn;
+    private TableColumn<Book, String> genreColumn;
     @FXML
-    private TableColumn<User, String> bailColumn;
+    private TableColumn<Book, String> bailColumn;
     @FXML
-    private TableColumn<User, String> rentalColumn;
+    private TableColumn<Book, String> rentalColumn;
     @FXML
-    private TableView<User> booksTable;
+    private TableView<Book> booksTable;
     @FXML
     public void openFillUserMenu(ActionEvent actionEvent) throws IOException {
         MainPaneController.getInstance().setContent("fillBooks.fxml");
@@ -36,21 +35,21 @@ public class BooksController {
     private void initialize() throws IOException {
         booksTable.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) {
-                User user = booksTable.getSelectionModel().getSelectedItem();
-                if (user != null) {
-                    MainPaneController.getInstance().setContent("editUser.fxml");
-                    ((EditUserController)MainPaneController.getInstance().getContentController()).loadUser(user);
-                    System.out.println(user.toString());
+                Book book = booksTable.getSelectionModel().getSelectedItem();
+                if (book != null) {
+                    MainPaneController.getInstance().setContent("editBook.fxml");
+                    ((EditBookController)MainPaneController.getInstance().getContentController()).loadBook(book);
+                    System.out.println(book.toString());
                 }
             }
         });
-        List<User> userList = new UserService().getAll();
-        ObservableList<User> observableUserList = FXCollections.observableArrayList(userList);
-        titleColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        authorColumn.setCellValueFactory(new PropertyValueFactory<>("lastname"));
-        genreColumn.setCellValueFactory(new PropertyValueFactory<>("patronymic"));
-        bailColumn.setCellValueFactory(new PropertyValueFactory<>("address"));
-        rentalColumn.setCellValueFactory(new PropertyValueFactory<>("phone"));
-        booksTable.setItems(observableUserList);
+        List<Book> bookList = new BookService().getAll();
+        ObservableList<Book> observableBookList = FXCollections.observableArrayList(bookList);
+        titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
+        authorColumn.setCellValueFactory(new PropertyValueFactory<>("author"));
+        genreColumn.setCellValueFactory(new PropertyValueFactory<>("genre"));
+        bailColumn.setCellValueFactory(new PropertyValueFactory<>("bailPrice"));
+        rentalColumn.setCellValueFactory(new PropertyValueFactory<>("rentalPrice"));
+        booksTable.setItems(observableBookList);
     }
 }
