@@ -4,8 +4,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 
-import java.util.Objects;
-
 public class MainPaneController {
     private BorderPane pane;
     private String contentFileName;

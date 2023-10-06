@@ -10,13 +10,13 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #444654;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.edu.dnu.project.BooksController">
    <children>
-      <TableView layoutX="15.0" layoutY="51.0" prefHeight="435.0" prefWidth="665.0" stylesheets="@style/table.css" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="51.0">
+      <TableView fx:id="booksTable" layoutX="15.0" layoutY="51.0" prefHeight="435.0" prefWidth="665.0" stylesheets="@style/table.css" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="51.0">
          <columns>
-            <TableColumn prefWidth="124.0" text="Назва" />
-            <TableColumn prefWidth="138.0" text="Автор" />
-            <TableColumn prefWidth="133.0" text="Жанр" />
-            <TableColumn prefWidth="104.0" text="Залог" />
-            <TableColumn prefWidth="171.0" text="Ціна прокату" />
+            <TableColumn fx:id="titleColumn" prefWidth="124.0" text="Назва" />
+            <TableColumn fx:id="authorColumn" prefWidth="138.0" text="Автор" />
+            <TableColumn fx:id="genreColumn" prefWidth="133.0" text="Жанр" />
+            <TableColumn fx:id="bailColumn" prefWidth="104.0" text="Залог" />
+            <TableColumn fx:id="rentalColumn" prefWidth="171.0" text="Ціна прокату" />
          </columns>
       </TableView>
       <Button layoutX="536.0" layoutY="16.0" mnemonicParsing="false" onAction="#openFillUserMenu" prefHeight="27.0" prefWidth="153.0" style="-fx-content-display: right; -fx-font-size: 15px; -fx-font-family: arial; -fx-font-weight: bold;" stylesheets="@style/btns.css" text="Додати книгу" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">

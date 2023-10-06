@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #444654;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.edu.dnu.project.UsersController">
+<AnchorPane fx:id="pane" prefHeight="500.0" prefWidth="729.0" style="-fx-background-color: #444654;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.edu.dnu.project.UsersController">
    <children>
       <Button layoutX="499.0" layoutY="12.0" mnemonicParsing="false" onAction="#openFillUserMenu" prefHeight="31.0" prefWidth="196.0" style="-fx-content-display: right; -fx-font-size: 15px; -fx-font-family: arial; -fx-font-weight: bold;" stylesheets="@style/btns.css" text="Додати користувача" textFill="#5e5151" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="12.0">
          <graphic>

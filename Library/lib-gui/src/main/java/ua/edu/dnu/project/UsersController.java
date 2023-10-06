@@ -37,8 +37,9 @@ public class UsersController{
             if (event.getClickCount() == 2) {
                 User user = usersTable.getSelectionModel().getSelectedItem();
                 if (user != null) {
+                    MainPaneController.getInstance().setContent("editUser.fxml");
+                    ((EditUserController)MainPaneController.getInstance().getContentController()).loadUser(user);
                     System.out.println(user.toString());
-                    //как дальше хз))
                 }
             }
         });
@@ -51,6 +52,4 @@ public class UsersController{
         phoneColumn.setCellValueFactory(new PropertyValueFactory<>("phone"));
         usersTable.setItems(observableUserList);
     }
-
-
 }
