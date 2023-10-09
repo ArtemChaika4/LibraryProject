@@ -19,7 +19,7 @@ public class EditUserController {
     private User user;
 
     // add validation
-    public void loadUser(User _user) {
+    public void loadUser(User user) {
         this.user = user;
         name.setText(user.getName());
         surname.setText(user.getLastname());

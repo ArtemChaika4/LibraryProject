@@ -33,6 +33,7 @@ public class BooksController {
 
     @FXML
     private void initialize() throws IOException {
+        booksTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         booksTable.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) {
                 Book book = booksTable.getSelectionModel().getSelectedItem();

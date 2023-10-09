@@ -12,7 +12,7 @@
 
 
 .table-cell{
-    -fx-border-color: transparent;
+    -fx-border-color: #35363f;
     -fx-padding: 2 0 2 10px;
 }
 .table-row-cell{
@@ -47,7 +47,15 @@
     -fx-background-color: transparent;
 }
 
+.scroll-bar {
+    -fx-padding: 0px 1px 0px 6px;
+}
+
+.scroll-bar:horizontal{
+    -fx-padding: 6px 0px 1px 0px;
+}
+
 .table-view .column-header-background{
     -fx-background-color: #343541;
-    -fx-padding: 0 0 5px 0;
+    -fx-padding: 0 0 7px 0;
 }

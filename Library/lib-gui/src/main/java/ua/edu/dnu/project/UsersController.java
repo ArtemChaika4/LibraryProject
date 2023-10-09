@@ -33,6 +33,7 @@ public class UsersController{
     }
     @FXML
     private void initialize() throws IOException {
+        usersTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         usersTable.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) {
                 User user = usersTable.getSelectionModel().getSelectedItem();
