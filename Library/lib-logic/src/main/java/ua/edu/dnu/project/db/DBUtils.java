@@ -30,7 +30,7 @@ public class DBUtils {
                     getPropertiesFromResource("db.properties").getProperty("id-counters"));
             String initialData = isCounterList ? "[0,0,0]" : "[]";
             try {
-                Files.createDirectories(Paths.get("db", "json"));
+                Files.createDirectories(path.getParent());
                 Files.write(path, initialData.getBytes());
             } catch (IOException ex) {
                 throw new FileNotFoundException("Неможливо відновити файл з даними: " + fileName);
