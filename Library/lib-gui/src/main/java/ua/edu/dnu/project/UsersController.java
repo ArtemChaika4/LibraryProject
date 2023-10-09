@@ -33,6 +33,17 @@ public class UsersController{
     }
     @FXML
     private void initialize() throws IOException {
+        usersTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        usersTable.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) {
+                User user = usersTable.getSelectionModel().getSelectedItem();
+                if (user != null) {
+                    MainPaneController.getInstance().setContent("editUser.fxml");
+                    ((EditUserController)MainPaneController.getInstance().getContentController()).loadUser(user);
+                    System.out.println(user.toString());
+                }
+            }
+        });
         List<User> userList = new UserService().getAll();
         ObservableList<User> observableUserList = FXCollections.observableArrayList(userList);
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));

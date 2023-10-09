@@ -10,21 +10,21 @@
 
 <AnchorPane fx:id="pane" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #444654;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.edu.dnu.project.UsersController">
    <children>
-      <Button layoutX="499.0" layoutY="12.0" mnemonicParsing="false" onAction="#openFillUserMenu" prefHeight="31.0" prefWidth="196.0" style="-fx-content-display: right; -fx-font-size: 15px; -fx-font-family: arial; -fx-font-weight: bold;" stylesheets="@style/btns.css" text="Додати користувача" textFill="#5e5151" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="12.0">
+      <Button layoutX="503.0" layoutY="11.0" mnemonicParsing="false" onAction="#openFillUserMenu" prefHeight="31.0" prefWidth="196.0" style="-fx-content-display: right; -fx-font-size: 15px; -fx-font-family: arial; -fx-font-weight: bold;" stylesheets="@style/btns.css" text="Додати користувача" textFill="#5e5151" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="11.0">
          <graphic>
             <FontAwesomeIcon fill="WHITE" glyphName="USER_PLUS" textAlignment="RIGHT" />
          </graphic>
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font></Button>
-      <TextField layoutX="14.0" layoutY="12.0" prefHeight="30.0" prefWidth="300.0" promptText="   Пошук" stylesheets="@style/btns.css" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
-      <TableView fx:id="usersTable" editable="true" layoutX="17.0" layoutY="49.0" prefHeight="433.0" prefWidth="665.0" stylesheets="@style/table.css" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="50.0">
+      <TextField layoutX="14.0" layoutY="12.0" prefHeight="30.0" prefWidth="300.0" promptText="   Пошук" stylesheets="@style/btns.css" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="11.0" />
+      <TableView fx:id="usersTable" layoutX="17.0" layoutY="49.0" prefHeight="435.0" prefWidth="685.0" stylesheets="@style/table.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
         <columns>
-          <TableColumn fx:id="nameColumn" prefWidth="125.0" resizable="false" style="-fx-text-fill: #ffffff;" text="Ім'я" />
-          <TableColumn fx:id="lastnameColumn" prefWidth="125.0" resizable="false" style="-fx-text-fill: #ffffff;" text="Прізвище" />
-            <TableColumn fx:id="patronymicColumn" prefWidth="125.0" resizable="false" style="-fx-text-fill: #ffffff;" text="По батькові" />
-            <TableColumn fx:id="addressColumn" prefWidth="125.0" resizable="false" style="-fx-text-fill: #ffffff;" text="Адреса" />
-            <TableColumn fx:id="phoneColumn" prefWidth="157.0" resizable="false" style="-fx-text-fill: #ffffff;" text="Номер телефону" />
+          <TableColumn fx:id="nameColumn" prefWidth="123.66667175292969" style="-fx-text-fill: #ffffff;" text="Ім'я" />
+          <TableColumn fx:id="lastnameColumn" prefWidth="135.3333282470703" style="-fx-text-fill: #ffffff;" text="Прізвище" />
+            <TableColumn fx:id="patronymicColumn" prefWidth="126.33334350585938" style="-fx-text-fill: #ffffff;" text="По батькові" />
+            <TableColumn fx:id="addressColumn" prefWidth="128.66665649414062" style="-fx-text-fill: #ffffff;" text="Адреса" />
+            <TableColumn fx:id="phoneColumn" prefWidth="158.0" style="-fx-text-fill: #ffffff;" text="Номер телефону" />
         </columns>
       </TableView>
    </children>
