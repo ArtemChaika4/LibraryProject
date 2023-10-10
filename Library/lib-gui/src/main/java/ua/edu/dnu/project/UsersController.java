@@ -4,9 +4,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import ua.edu.dnu.project.exception.ServiceException;
 import ua.edu.dnu.project.model.User;
 import ua.edu.dnu.project.service.UserService;
 
@@ -28,22 +30,37 @@ public class UsersController{
     @FXML
     private TableView<User> usersTable;
     @FXML
+    private ComboBox<String> sortList;
+    @FXML
     public void openFillUserMenu(ActionEvent actionEvent) throws IOException {
         MainPaneController.getInstance().setContent("fillUser.fxml");
     }
+
+    @FXML
+    private void EditUser(){
+        User user = usersTable.getSelectionModel().getSelectedItem();
+        if (user != null) {
+            MainPaneController.getInstance().setContent("editUser.fxml");
+            ((EditUserController)MainPaneController.getInstance().getContentController()).loadUser(user);
+            System.out.println(user);
+        }
+    }
+
+    @FXML
+    private void DeleteUser() throws ServiceException {
+        Storage storage = new Storage();
+        User user = usersTable.getSelectionModel().getSelectedItem();
+        if (user != null) {
+            usersTable.getItems().remove(user);
+            storage.users().delete(user.getId());
+        }
+    }
     @FXML
     private void initialize() throws IOException {
+        ObservableList<String> sorts = FXCollections.observableArrayList("Ім'я", "Прізвище", "По батькові", "Адреса", "Номер телефону");
+        sortList.setItems(sorts);
+        sortList.setValue("За замовченням");
         usersTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        usersTable.setOnMouseClicked(event -> {
-            if (event.getClickCount() == 2) {
-                User user = usersTable.getSelectionModel().getSelectedItem();
-                if (user != null) {
-                    MainPaneController.getInstance().setContent("editUser.fxml");
-                    ((EditUserController)MainPaneController.getInstance().getContentController()).loadUser(user);
-                    System.out.println(user.toString());
-                }
-            }
-        });
         List<User> userList = new UserService().getAll();
         ObservableList<User> observableUserList = FXCollections.observableArrayList(userList);
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));

@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #444654;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.edu.dnu.project.BooksController">
    <children>
-      <TableView fx:id="booksTable" layoutX="15.0" layoutY="51.0" prefHeight="435.0" prefWidth="685.0" stylesheets="@style/table.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+      <TableView fx:id="booksTable" layoutX="15.0" layoutY="51.0" prefHeight="435.0" prefWidth="685.0" stylesheets="@style/table.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="55.0">
          <columns>
             <TableColumn fx:id="titleColumn" prefWidth="125.0" style="-fx-text-fill: white;" text="Назва" />
             <TableColumn fx:id="authorColumn" prefWidth="125.0" style="-fx-text-fill: white;" text="Автор" />
@@ -19,14 +19,30 @@
             <TableColumn fx:id="rentalColumn" prefWidth="158.0" style="-fx-text-fill: white;" text="Ціна прокату" />
          </columns>
       </TableView>
-      <Button layoutX="536.0" layoutY="16.0" mnemonicParsing="false" onAction="#openFillUserMenu" prefHeight="31.0" prefWidth="153.0" style="-fx-content-display: right; -fx-font-size: 15px; -fx-font-family: arial; -fx-font-weight: bold;" stylesheets="@style/btns.css" text="Додати книгу" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="11.0">
-         <graphic>
-            <FontAwesomeIcon fill="WHITE" glyphName="BOOK" textAlignment="RIGHT" wrappingWidth="27.928571701049805" />
-         </graphic>
+      <Button layoutX="648.0" layoutY="10.0" mnemonicParsing="false" onAction="#openFillBookMenu" prefHeight="35.0" prefWidth="35.0" style="-fx-font-size: 15;" stylesheets="@style/btns.css" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
+         <graphic>
+            <FontAwesomeIcon fill="WHITE" glyphName="PLUS" size="20" tabSize="0" textAlignment="CENTER" wrappingWidth="6.0" />
+         </graphic>
       </Button>
-      <TextField layoutX="16.0" layoutY="16.0" prefHeight="30.0" prefWidth="300.0" promptText="   Пошук" stylesheets="@style/btns.css" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="11.0" />
+      <TextField layoutX="16.0" layoutY="16.0" prefHeight="35.0" prefWidth="300.0" promptText="   Пошук" stylesheets="@style/btns.css" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+      <Button layoutX="658.0" layoutY="20.0" mnemonicParsing="false" onAction="#EditBook" prefHeight="35.0" prefWidth="35.0" style="-fx-font-size: 15px; -fx-font-family: arial; -fx-font-weight: bold;" stylesheets="@style/btns.css" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIcon fill="WHITE" glyphName="PENCIL" size="19" wrappingWidth="10.928571701049805" />
+         </graphic>
+      </Button>
+      <Button layoutX="573.0" layoutY="11.0" mnemonicParsing="false" onAction="#DeleteBook" prefHeight="35.0" prefWidth="35.0" style="-fx-font-size: 14.5; -fx-font-family: arial; -fx-font-weight: bold;" stylesheets="@style/btns.css" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIcon fill="WHITE" glyphName="TRASH" size="20" wrappingWidth="5.428571701049805" />
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

@@ -51,7 +51,7 @@ public class BookService implements Service<Book> {
     public void delete(int id) throws ServiceException {
         Book book = getById(id);
         book.setStatus(BookStatus.DELETED);
-        //books.remove(book);
+        books.remove(book);
     }
 
 }
