@@ -12,7 +12,6 @@ public class Validation {
     }
     public static boolean isMatchesRegexPrice(TextField value){
         return value.getText().matches("^[0-9+]{0,3}$");
-
     }
     public static boolean isMatchesRegexNSP(TextField value){
         return value.getText().matches("^[А-ЯЇҐЄІ]('?[а-яїієґ]){1,30}$");
@@ -29,7 +28,7 @@ public class Validation {
     public static void addPriceValidation(TextField textField) {
         textField.textProperty().addListener((observableValue, oldValue, newValue) -> {
             if (newValue != null && !newValue.isEmpty()) {
-                if (newValue.matches("^[1-9]\\d*$")) {
+                if (newValue.matches("^[0-9+]{0,3}$")) {
                     textField.setStyle("-fx-border-color: green;");
                 } else {
                     textField.setStyle("-fx-border-color: red;");

@@ -6,9 +6,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ua.edu.dnu.project.exception.ServiceException;
+import ua.edu.dnu.project.filter.BookFilter;
 import ua.edu.dnu.project.model.Book;
+import ua.edu.dnu.project.model.BookStatus;
 import ua.edu.dnu.project.service.BookService;
 
 import java.io.IOException;
@@ -17,6 +20,8 @@ import java.util.List;
 public class BooksController {
     @FXML
     private TableColumn<Book, String> titleColumn;
+    @FXML
+    private TextField searchField;
     @FXML
     private TableColumn<Book, String> authorColumn;
     @FXML
@@ -27,6 +32,7 @@ public class BooksController {
     private TableColumn<Book, String> rentalColumn;
     @FXML
     private TableView<Book> booksTable;
+    BookFilter filter;
     @FXML
     public void openFillBookMenu(ActionEvent actionEvent) throws IOException {
         MainPaneController.getInstance().setContent("fillBooks.fxml");
@@ -55,7 +61,8 @@ public class BooksController {
     @FXML
     private void initialize() throws IOException {
         booksTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        List<Book> bookList = new BookService().getAll();
+        filter = new BookFilter(new BookService().getAll());
+        List<Book> bookList = filter.setHasStatus(BookStatus.AVAILABLE).select();
         ObservableList<Book> observableBookList = FXCollections.observableArrayList(bookList);
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         authorColumn.setCellValueFactory(new PropertyValueFactory<>("author"));
@@ -63,5 +70,24 @@ public class BooksController {
         bailColumn.setCellValueFactory(new PropertyValueFactory<>("bailPrice"));
         rentalColumn.setCellValueFactory(new PropertyValueFactory<>("rentalPrice"));
         booksTable.setItems(observableBookList);
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == null || newValue.isEmpty()) {
+                booksTable.setItems(observableBookList);
+            } else {
+                // If there's text, apply the filter
+                ObservableList<Book> observableSearchBookList = FXCollections.observableArrayList(filter.setContains(newValue).select());
+                booksTable.setItems(observableSearchBookList);
+            }
+        });
     }
+
+//    private void onEdit(){
+//        if(searchField.getText() == null){
+//            filter.reset();
+//        }
+//        else{
+//            ObservableList<Book> observableBookList = FXCollections.observableArrayList(filter.setStartsWith(searchField.getText()).select());
+//            booksTable.setItems(observableBookList);
+//        }
+//    }
 }

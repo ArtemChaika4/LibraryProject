@@ -14,9 +14,9 @@
          <columns>
             <TableColumn fx:id="titleColumn" prefWidth="125.0" style="-fx-text-fill: white;" text="Назва" />
             <TableColumn fx:id="authorColumn" prefWidth="125.0" style="-fx-text-fill: white;" text="Автор" />
-            <TableColumn fx:id="genreColumn" prefWidth="142.0" style="-fx-text-fill: white;" text="Жанр" />
-            <TableColumn fx:id="bailColumn" minWidth="0.0" prefWidth="114.0" style="-fx-text-fill: white;" text="Залог" />
-            <TableColumn fx:id="rentalColumn" prefWidth="158.0" style="-fx-text-fill: white;" text="Ціна прокату" />
+            <TableColumn fx:id="genreColumn" prefWidth="136.0" style="-fx-text-fill: white;" text="Жанр" />
+            <TableColumn fx:id="bailColumn" minWidth="0.0" prefWidth="117.0" style="-fx-text-fill: white;" text="Залог" />
+            <TableColumn fx:id="rentalColumn" prefWidth="161.0" style="-fx-text-fill: white;" text="Ціна прокату" />
          </columns>
       </TableView>
       <Button layoutX="648.0" layoutY="10.0" mnemonicParsing="false" onAction="#openFillBookMenu" prefHeight="35.0" prefWidth="35.0" style="-fx-font-size: 15;" stylesheets="@style/btns.css" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
@@ -27,7 +27,10 @@
             <FontAwesomeIcon fill="WHITE" glyphName="PLUS" size="20" tabSize="0" textAlignment="CENTER" wrappingWidth="6.0" />
          </graphic>
       </Button>
-      <TextField layoutX="16.0" layoutY="16.0" prefHeight="35.0" prefWidth="300.0" promptText="   Пошук" stylesheets="@style/btns.css" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+      <TextField fx:id="searchField" layoutX="16.0" layoutY="16.0" prefHeight="35.0" prefWidth="300.0" promptText="Пошук" stylesheets="@style/btns.css" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></TextField>
       <Button layoutX="658.0" layoutY="20.0" mnemonicParsing="false" onAction="#EditBook" prefHeight="35.0" prefWidth="35.0" style="-fx-font-size: 15px; -fx-font-family: arial; -fx-font-weight: bold;" stylesheets="@style/btns.css" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="10.0">
          <font>
             <Font name="Arial Bold" size="18.0" />

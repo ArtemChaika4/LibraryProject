@@ -7,8 +7,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ua.edu.dnu.project.exception.ServiceException;
+import ua.edu.dnu.project.filter.UserFilter;
 import ua.edu.dnu.project.model.User;
 import ua.edu.dnu.project.service.UserService;
 
@@ -31,6 +33,9 @@ public class UsersController{
     private TableView<User> usersTable;
     @FXML
     private ComboBox<String> sortList;
+    @FXML
+    private TextField searchField;
+    UserFilter filter;
     @FXML
     public void openFillUserMenu(ActionEvent actionEvent) throws IOException {
         MainPaneController.getInstance().setContent("fillUser.fxml");
@@ -62,6 +67,7 @@ public class UsersController{
         sortList.setValue("За замовченням");
         usersTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         List<User> userList = new UserService().getAll();
+        filter = new UserFilter(new UserService().getAll());
         ObservableList<User> observableUserList = FXCollections.observableArrayList(userList);
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         lastnameColumn.setCellValueFactory(new PropertyValueFactory<>("lastname"));
@@ -69,5 +75,17 @@ public class UsersController{
         addressColumn.setCellValueFactory(new PropertyValueFactory<>("address"));
         phoneColumn.setCellValueFactory(new PropertyValueFactory<>("phone"));
         usersTable.setItems(observableUserList);
+
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == null || newValue.isEmpty()) {
+                usersTable.setItems(observableUserList);
+            } else {
+                ObservableList<User> observableSearchUserList = FXCollections.observableArrayList(filter.setContains(newValue).select());
+                usersTable.setItems(observableSearchUserList);
+            }
+        });
     }
+
+
+
 }

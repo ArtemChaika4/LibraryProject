@@ -13,6 +13,7 @@ public class BookFilter extends AbstractFilter<Book>{
     private Predicate<Book> startsWith;
     private Predicate<Book> hasStatus;
     private Predicate<Book> priceBetween;
+    private Predicate<Book> contains;
     private Comparator<Book> sortedBy;
 
     public BookFilter(List<Book> list){
@@ -31,6 +32,17 @@ public class BookFilter extends AbstractFilter<Book>{
                 String.valueOf(book.getRentalPrice()).startsWith(value);
         return this;
     }
+
+    public BookFilter setContains(String value) {
+        contains = book -> book.getTitle().contains(value) ||
+                book.getAuthor().contains(value) ||
+                book.getGenre().contains(value) ||
+                String.valueOf(book.getBailPrice()).contains(value) ||
+                String.valueOf(book.getRentalPrice()).contains(value);
+        return this;
+    }
+
+
 
     public BookFilter setPriceBetween(int min, int max){
         priceBetween = book ->
@@ -64,6 +76,7 @@ public class BookFilter extends AbstractFilter<Book>{
         bookStream = addFilter(hasStatus, bookStream);
         bookStream = addFilter(startsWith, bookStream);
         bookStream = addFilter(priceBetween, bookStream);
+        bookStream = addFilter(contains, bookStream);
         if(sortedBy != null){
             bookStream = bookStream.sorted(sortedBy);
         }

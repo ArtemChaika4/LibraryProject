@@ -10,6 +10,9 @@ import java.util.stream.Stream;
 
 public class UserFilter extends AbstractFilter<User> {
     private Predicate<User> startsWith;
+
+    private Predicate<User> contains;
+
     private Comparator<User> sortedBy;
 
     public UserFilter(List<User> list) {
@@ -22,6 +25,15 @@ public class UserFilter extends AbstractFilter<User> {
                 user.getPatronymic().startsWith(value) ||
                 user.getAddress().startsWith(value) ||
                 user.getPhone().startsWith(value);
+        return this;
+    }
+
+    public UserFilter setContains(String value) {
+        contains = user -> user.getLastname().contains(value) ||
+                user.getName().contains(value) ||
+                user.getPatronymic().contains(value) ||
+                user.getAddress().contains(value) ||
+                user.getPhone().contains(value);
         return this;
     }
 
@@ -41,12 +53,14 @@ public class UserFilter extends AbstractFilter<User> {
     }
     public void reset(){
         startsWith = null;
+        contains = null;
         sortedBy = null;
     }
 
     public List<User> select(){
         Stream<User> userStream = list.stream();
         userStream = addFilter(startsWith, userStream);
+        userStream = addFilter(contains, userStream);
         if(sortedBy != null){
             userStream = userStream.sorted(sortedBy);
         }
