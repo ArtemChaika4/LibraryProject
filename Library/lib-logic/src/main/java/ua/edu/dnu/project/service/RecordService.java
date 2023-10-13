@@ -27,7 +27,7 @@ public class RecordService implements Service<Record> {
     public void create(Record item) throws ServiceException {
         validateRecord(item);
         item.setStatus(RecordStatus.RENTED);
-        item.getBook().setStatus(BookStatus.MISSING);
+        item.getBook().setStatus(BookStatus.BORROWED);
         records.add(item);
     }
 

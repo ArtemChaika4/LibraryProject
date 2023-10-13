@@ -74,6 +74,7 @@ public class Record extends DBEntry {
                 ", user=" + user +
                 ", dateOfIssue=" + dateOfIssue +
                 ", dateOfReturn=" + dateOfReturn +
+                ", status=" + status +
                 '}';
     }
 }

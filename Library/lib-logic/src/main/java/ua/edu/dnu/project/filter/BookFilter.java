@@ -72,6 +72,7 @@ public class BookFilter extends AbstractFilter<Book>{
     public void reset(){
         hasStatus = null;
         startsWith = null;
+        contains = null;
         priceBetween = null;
         sortedBy = null;
     }
