@@ -51,6 +51,12 @@ public class UserFilter extends AbstractFilter<User> {
         sortedBy = Comparator.comparing(User::getAddress);
         return this;
     }
+
+    public UserFilter setSortedByPatronymic(){
+        sortedBy = Comparator.comparing(User::getPatronymic);
+        return this;
+    }
+
     public void reset(){
         startsWith = null;
         contains = null;
