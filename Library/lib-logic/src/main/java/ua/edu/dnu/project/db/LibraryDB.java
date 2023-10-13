@@ -4,9 +4,11 @@ import com.google.gson.reflect.TypeToken;
 import ua.edu.dnu.project.exception.ServiceException;
 import ua.edu.dnu.project.model.Book;
 import ua.edu.dnu.project.model.Record;
+import ua.edu.dnu.project.model.RecordStatus;
 import ua.edu.dnu.project.model.User;
 
 import java.io.FileNotFoundException;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -74,7 +76,18 @@ public class LibraryDB {
     }
 
     public DBSet<Record> getRecords() {
+        updateRecordsStatus();
         return records;
+    }
+
+    public void updateRecordsStatus(){
+        Date currentDate = new Date(System.currentTimeMillis());
+        for (Record record : records.getData()) {
+            if(record.getStatus() == RecordStatus.RENTED
+                    && currentDate.after(record.getDateOfReturn())){
+                record.setStatus(RecordStatus.OVERDUE);
+            }
+        }
     }
 
     public boolean isLoaded(){
