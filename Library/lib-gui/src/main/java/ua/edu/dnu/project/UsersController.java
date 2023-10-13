@@ -36,6 +36,19 @@ public class UsersController{
     @FXML
     private TextField searchField;
     UserFilter filter;
+
+
+
+    @FXML
+    public void Sort(){
+        switch (sortList.getValue()){
+            case "Ім'я": SortByName(); break;
+            case "Прізвище": ; SortByLastname(); break;
+            case "По батькові": SortByPatronymic(); break;
+            case "Адреса": SortByAddress(); break;
+        }
+    }
+
     @FXML
     public void openFillUserMenu(ActionEvent actionEvent) throws IOException {
         MainPaneController.getInstance().setContent("fillUser.fxml");
@@ -62,7 +75,7 @@ public class UsersController{
     }
     @FXML
     private void initialize() throws IOException {
-        ObservableList<String> sorts = FXCollections.observableArrayList("Ім'я", "Прізвище", "По батькові", "Адреса", "Номер телефону");
+        ObservableList<String> sorts = FXCollections.observableArrayList("Ім'я", "Прізвище", "По батькові", "Адреса");
         sortList.setItems(sorts);
         sortList.setValue("За замовченням");
         usersTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
@@ -86,6 +99,19 @@ public class UsersController{
         });
     }
 
+    private void SortByName(){
+        usersTable.setItems(FXCollections.observableArrayList(filter.setSortedByName().select()));
+    }
 
+    private void SortByLastname(){
+        usersTable.setItems(FXCollections.observableArrayList(filter.setSortedByLastname().select()));
+    }
 
+    private void SortByAddress(){
+        usersTable.setItems(FXCollections.observableArrayList(filter.setSortedByAddress().select()));
+    }
+
+    private void SortByPatronymic(){
+        usersTable.setItems(FXCollections.observableArrayList(filter.setSortedByPatronymic().select()));
+    }
 }

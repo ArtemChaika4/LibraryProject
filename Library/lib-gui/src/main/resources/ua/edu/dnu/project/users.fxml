@@ -24,14 +24,14 @@
          </font></TextField>
       <TableView fx:id="usersTable" layoutX="17.0" layoutY="49.0" prefHeight="435.0" prefWidth="680.0" stylesheets="@style/table.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="55.0">
         <columns>
-          <TableColumn fx:id="nameColumn" prefWidth="123.66667175292969" style="-fx-text-fill: #ffffff;" text="Ім'я" />
-          <TableColumn fx:id="lastnameColumn" prefWidth="135.3333282470703" style="-fx-text-fill: #ffffff;" text="Прізвище" />
-            <TableColumn fx:id="patronymicColumn" prefWidth="126.33334350585938" style="-fx-text-fill: #ffffff;" text="По батькові" />
-            <TableColumn fx:id="addressColumn" prefWidth="128.66665649414062" style="-fx-text-fill: #ffffff;" text="Адреса" />
-            <TableColumn fx:id="phoneColumn" prefWidth="158.0" style="-fx-text-fill: #ffffff;" text="Номер телефону" />
+          <TableColumn fx:id="nameColumn" prefWidth="123.66667175292969" sortable="false" style="-fx-text-fill: #ffffff;" text="Ім'я" />
+          <TableColumn fx:id="lastnameColumn" prefWidth="135.3333282470703" sortable="false" style="-fx-text-fill: #ffffff;" text="Прізвище" />
+            <TableColumn fx:id="patronymicColumn" prefWidth="126.33334350585938" sortable="false" style="-fx-text-fill: #ffffff;" text="По батькові" />
+            <TableColumn fx:id="addressColumn" prefWidth="128.66665649414062" sortable="false" style="-fx-text-fill: #ffffff;" text="Адреса" />
+            <TableColumn fx:id="phoneColumn" prefWidth="158.0" sortable="false" style="-fx-text-fill: #ffffff;" text="Номер телефону" />
         </columns>
       </TableView>
-      <ComboBox fx:id="sortList" layoutX="321.0" layoutY="14.0" prefHeight="25.0" prefWidth="162.0" AnchorPane.topAnchor="11.0" />
+      <ComboBox fx:id="sortList" layoutX="321.0" layoutY="14.0" onAction="#Sort" prefHeight="35.0" prefWidth="140.0" stylesheets="@style/sort.css" AnchorPane.topAnchor="10.0" />
       <Button layoutX="609.0" layoutY="11.0" mnemonicParsing="false" onAction="#EditUser" prefHeight="35.0" prefWidth="35.0" style="-fx-font-size: 15px;" stylesheets="@style/btns.css" textFill="#5e5151" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="10.0">
          <font>
             <Font name="Arial Bold" size="18.0" />

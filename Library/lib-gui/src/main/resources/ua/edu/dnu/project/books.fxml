@@ -2,6 +2,7 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -12,11 +13,11 @@
    <children>
       <TableView fx:id="booksTable" layoutX="15.0" layoutY="51.0" prefHeight="435.0" prefWidth="685.0" stylesheets="@style/table.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="55.0">
          <columns>
-            <TableColumn fx:id="titleColumn" prefWidth="125.0" style="-fx-text-fill: white;" text="Назва" />
-            <TableColumn fx:id="authorColumn" prefWidth="125.0" style="-fx-text-fill: white;" text="Автор" />
-            <TableColumn fx:id="genreColumn" prefWidth="136.0" style="-fx-text-fill: white;" text="Жанр" />
-            <TableColumn fx:id="bailColumn" minWidth="0.0" prefWidth="117.0" style="-fx-text-fill: white;" text="Залог" />
-            <TableColumn fx:id="rentalColumn" prefWidth="161.0" style="-fx-text-fill: white;" text="Ціна прокату" />
+            <TableColumn fx:id="titleColumn" prefWidth="125.0" sortable="false" style="-fx-text-fill: white;" text="Назва" />
+            <TableColumn fx:id="authorColumn" prefWidth="125.0" sortable="false" style="-fx-text-fill: white;" text="Автор" />
+            <TableColumn fx:id="genreColumn" prefWidth="136.0" sortable="false" style="-fx-text-fill: white;" text="Жанр" />
+            <TableColumn fx:id="bailColumn" minWidth="0.0" prefWidth="117.0" sortable="false" style="-fx-text-fill: white;" text="Залог" />
+            <TableColumn fx:id="rentalColumn" prefWidth="161.0" sortable="false" style="-fx-text-fill: white;" text="Ціна прокату" />
          </columns>
       </TableView>
       <Button layoutX="648.0" layoutY="10.0" mnemonicParsing="false" onAction="#openFillBookMenu" prefHeight="35.0" prefWidth="35.0" style="-fx-font-size: 15;" stylesheets="@style/btns.css" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
@@ -40,6 +41,15 @@
          </graphic>
       </Button>
       <Button layoutX="573.0" layoutY="11.0" mnemonicParsing="false" onAction="#DeleteBook" prefHeight="35.0" prefWidth="35.0" style="-fx-font-size: 14.5; -fx-font-family: arial; -fx-font-weight: bold;" stylesheets="@style/btns.css" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIcon fill="WHITE" glyphName="TRASH" size="20" wrappingWidth="5.428571701049805" />
+         </graphic>
+      </Button>
+      <ComboBox fx:id="sortList" layoutX="320.0" layoutY="15.0" onAction="#Sort" prefHeight="25.0" prefWidth="140.0" stylesheets="@style/sort.css" AnchorPane.topAnchor="10.0" />
+      <Button layoutX="529.0" layoutY="10.0" mnemonicParsing="false" onAction="#BorrowBook" prefHeight="35.0" prefWidth="35.0" style="-fx-font-size: 14.5; -fx-font-family: arial; -fx-font-weight: bold;" stylesheets="@style/btns.css" AnchorPane.rightAnchor="130.0">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>

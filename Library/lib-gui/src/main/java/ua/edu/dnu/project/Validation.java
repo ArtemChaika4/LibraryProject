@@ -25,6 +25,10 @@ public class Validation {
         return value.getText().matches("^[0-9]+$");
     }
 
+    public static boolean isMatchesRegexPhone(String value){
+        return value.matches("^[0-9]+$");
+    }
+
     public static void addPriceValidation(TextField textField) {
         textField.textProperty().addListener((observableValue, oldValue, newValue) -> {
             if (newValue != null && !newValue.isEmpty()) {
@@ -42,13 +46,12 @@ public class Validation {
     public static void addAddressValidation(TextField textField){
         textField.textProperty().addListener(((observableValue, oldValue, newValue) -> {
             if (!newValue.isEmpty()){
-                String address = newValue;
-                if(!address.matches(("^[А-ЯЇҐЄІ]('?[а-яїієґ0-9\\s]){6,50}$"))){
+                if(!newValue.matches(("^[А-ЯЇҐЄІ]('?[а-яїієґ0-9\\s]){6,50}$"))){
                     textField.setStyle("-fx-border-color: red;");
                 }
                 else {
                     textField.setStyle("-fx-border-color: green;");
-                    textField.setText(address);
+                    textField.setText(newValue);
                 }
             }
             else{
@@ -56,15 +59,15 @@ public class Validation {
             }
         }));
     }
+
     public static void addPhoneNumberValidation(TextField textField) {
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.isEmpty()) {
-                String phoneNumber = newValue;
-                if (!phoneNumber.matches("^[0-9]+$") || phoneNumber.length() != 10 || phoneNumber.contains(" ")) {
+                if (!newValue.matches("^[0-9]+$") || newValue.length() != 10 || newValue.contains(" ")) {
                     textField.setStyle("-fx-border-color: red;");
                 } else {
                     textField.setStyle("-fx-border-color: green;");
-                    textField.setText(phoneNumber);
+                    textField.setText(newValue);
                 }
             } else {
                 textField.setStyle("-fx-border-color: none");
@@ -74,13 +77,12 @@ public class Validation {
     public static void addUppercaseValidation(TextField textField) {
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.isEmpty()) {
-                String text = newValue;
-                if (!text.matches("^[А-ЯЇҐЄІ]('?[а-яїієґ]){1,30}$")) {
+                if (!newValue.matches("^[А-ЯЇҐЄІ]('?[а-яїієґ]){1,30}$")) {
                     textField.setStyle("-fx-border-color: red;");
                 }
                 else {
                     textField.setStyle("-fx-border-color: green;");
-                    textField.setText(text);
+                    textField.setText(newValue);
                 }
             } else {
                 textField.setStyle("");

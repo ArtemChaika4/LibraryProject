@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.edu.dnu.project.RecordsController">
+   <children>
+      <TableView fx:id="recordsTable" layoutX="26.0" layoutY="59.0" prefHeight="282.0" prefWidth="556.0">
+        <columns>
+          <TableColumn fx:id="nameColumn" text="Ім'я" />
+          <TableColumn fx:id="surnameColumn" prefWidth="93.0" text="Прізвище" />
+            <TableColumn fx:id="booknameColumn" prefWidth="93.0" text="Назва книги" />
+            <TableColumn fx:id="dateOfBorrowColumn" prefWidth="106.0" text="Дата позичення" />
+            <TableColumn fx:id="dateOfReturnColumn" prefWidth="118.0" text="Дата повернення" />
+            <TableColumn fx:id="statusColumn" prefWidth="64.0" text="Статус" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

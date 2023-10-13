@@ -2,7 +2,6 @@
     -fx-background-color: #343541;
     -fx-border-width: 5px;
     -fx-border-color: #343541;
-    -fx-border-radius: 15px;
     -fx-font-size: 15px;
 }
 
@@ -10,11 +9,11 @@
     -fx-background-color: #343541;
 }
 
-
 .table-cell{
     -fx-border-color: #35363f;
     -fx-padding: 2 0 2 10px;
 }
+
 .table-row-cell{
     -fx-background-color: #444654;
 }
@@ -22,6 +21,7 @@
 .table-row-cell:selected{
     -fx-background-color: #35363f;
 }
+
 .increment-button{
     -fx-background-color: #343541;
 }
