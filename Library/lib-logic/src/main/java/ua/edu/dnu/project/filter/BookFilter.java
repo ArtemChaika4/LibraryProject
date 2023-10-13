@@ -64,6 +64,11 @@ public class BookFilter extends AbstractFilter<Book>{
         return this;
     }
 
+    public BookFilter setSortedByGenre(){
+        sortedBy = Comparator.comparing(Book::getGenre);
+        return this;
+    }
+
     public void reset(){
         hasStatus = null;
         startsWith = null;
