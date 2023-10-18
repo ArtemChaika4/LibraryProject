@@ -95,12 +95,11 @@ public class Validation {
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.isEmpty()) {
                 textField.setStyle("");
-            } else if (!newValue.matches("^[А-ЯЇҐЄІ]('?[а-яїієґ]){1,30}( [А-ЯЇҐЄІ]('?[а-яїієґ]){1,30})?$")) {
+            } else if (!newValue.matches("^[А-ЯЇҐЄІа-яїієґ ]{3,30}$") || newValue.endsWith(" ")) {
                 textField.setStyle("-fx-border-color: red;");
             } else {
                 textField.setStyle("-fx-border-color: green;");
             }
         });
     }
-
 }
