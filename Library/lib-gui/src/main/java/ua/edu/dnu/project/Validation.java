@@ -13,7 +13,7 @@ public class Validation {
     }
 
     public static boolean isMatchesRegexPrice(TextField value) {
-        return value.getText().matches("^[0-9+]{0,3}$");
+        return value.getText().matches("^[0-9+]{0,5}$");
     }
 
     public static boolean isMatchesRegexTA(TextField value) {
