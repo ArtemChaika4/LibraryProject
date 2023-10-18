@@ -29,7 +29,7 @@ public class Validation {
     }
 
     public static boolean isMatchesRegexPhone(TextField value) {
-        return value.getText().matches("^[0-9]+$");
+        return value.getText().matches("^[0-9]{10}$");
     }
 
     public static boolean isMatchesRegexPhone(String value) {
