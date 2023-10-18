@@ -4,28 +4,31 @@ import javafx.scene.control.TextField;
 
 public class Validation {
 
-    public static boolean areAllValidatedFieldsUser(TextField name, TextField surname, TextField patronymic, TextField address, TextField phone){
+    public static boolean areAllValidatedFieldsUser(TextField name, TextField surname, TextField patronymic, TextField address, TextField phone) {
         return Validation.isMatchesRegexNSP(name) && Validation.isMatchesRegexNSP(surname) && Validation.isMatchesRegexNSP(patronymic) && Validation.isMatchesRegexAddress(address) && Validation.isMatchesRegexPhone(phone);
     }
-    public static boolean areAllValidatedFieldsBook(TextField title, TextField author, TextField genre, TextField bailPrice, TextField rentalPrice){
+
+    public static boolean areAllValidatedFieldsBook(TextField title, TextField author, TextField genre, TextField bailPrice, TextField rentalPrice) {
         return Validation.isMatchesRegexNSP(title) && Validation.isMatchesRegexNSP(author) && Validation.isMatchesRegexNSP(genre) && Validation.isMatchesRegexPrice(bailPrice) && Validation.isMatchesRegexPrice(rentalPrice);
     }
-    public static boolean isMatchesRegexPrice(TextField value){
+
+    public static boolean isMatchesRegexPrice(TextField value) {
         return value.getText().matches("^[0-9+]{0,3}$");
     }
-    public static boolean isMatchesRegexNSP(TextField value){
+
+    public static boolean isMatchesRegexNSP(TextField value) {
         return value.getText().matches("^[А-ЯЇҐЄІ]('?[а-яїієґ]){1,30}$");
     }
 
-    public static boolean isMatchesRegexAddress(TextField value){
+    public static boolean isMatchesRegexAddress(TextField value) {
         return value.getText().matches("^[А-ЯЇҐЄІ]('?[а-яїієґ0-9\\s]){6,50}$");
     }
 
-    public static boolean isMatchesRegexPhone(TextField value){
+    public static boolean isMatchesRegexPhone(TextField value) {
         return value.getText().matches("^[0-9]+$");
     }
 
-    public static boolean isMatchesRegexPhone(String value){
+    public static boolean isMatchesRegexPhone(String value) {
         return value.matches("^[0-9]+$");
     }
 
@@ -43,18 +46,16 @@ public class Validation {
         });
     }
 
-    public static void addAddressValidation(TextField textField){
+    public static void addAddressValidation(TextField textField) {
         textField.textProperty().addListener(((observableValue, oldValue, newValue) -> {
-            if (!newValue.isEmpty()){
-                if(!newValue.matches(("^[А-ЯЇҐЄІ]('?[а-яїієґ0-9\\s]){6,50}$"))){
+            if (!newValue.isEmpty()) {
+                if (!newValue.matches(("^[А-ЯЇҐЄІ]('?[а-яїієґ0-9\\s]){6,50}$"))) {
                     textField.setStyle("-fx-border-color: red;");
-                }
-                else {
+                } else {
                     textField.setStyle("-fx-border-color: green;");
                     textField.setText(newValue);
                 }
-            }
-            else{
+            } else {
                 textField.setStyle("-fx-border-color: none");
             }
         }));
@@ -74,13 +75,13 @@ public class Validation {
             }
         });
     }
+
     public static void addUppercaseValidation(TextField textField) {
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.isEmpty()) {
                 if (!newValue.matches("^[А-ЯЇҐЄІ]('?[а-яїієґ]){1,30}$")) {
                     textField.setStyle("-fx-border-color: red;");
-                }
-                else {
+                } else {
                     textField.setStyle("-fx-border-color: green;");
                     textField.setText(newValue);
                 }
@@ -89,4 +90,17 @@ public class Validation {
             }
         });
     }
+
+    public static void addTitleAndAuthorValidation(TextField textField) {
+        textField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                textField.setStyle("");
+            } else if (!newValue.matches("^[А-ЯЇҐЄІ]('?[а-яїієґ]){1,30}( [А-ЯЇҐЄІ]('?[а-яїієґ]){1,30})?$")) {
+                textField.setStyle("-fx-border-color: red;");
+            } else {
+                textField.setStyle("-fx-border-color: green;");
+            }
+        });
+    }
+
 }

@@ -31,8 +31,8 @@ public class FillBookController {
 
     @FXML
     private void initialize() {
-        Validation.addUppercaseValidation(title);
-        Validation.addUppercaseValidation(author);
+        Validation.addTitleAndAuthorValidation(title);
+        Validation.addTitleAndAuthorValidation(author);
         Validation.addUppercaseValidation(genre);
         Validation.addPriceValidation(bailPrice);
         Validation.addPriceValidation(rentalPrice);
