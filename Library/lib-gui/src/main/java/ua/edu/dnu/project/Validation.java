@@ -9,11 +9,15 @@ public class Validation {
     }
 
     public static boolean areAllValidatedFieldsBook(TextField title, TextField author, TextField genre, TextField bailPrice, TextField rentalPrice) {
-        return Validation.isMatchesRegexNSP(title) && Validation.isMatchesRegexNSP(author) && Validation.isMatchesRegexNSP(genre) && Validation.isMatchesRegexPrice(bailPrice) && Validation.isMatchesRegexPrice(rentalPrice);
+        return Validation.isMatchesRegexTA(title) && Validation.isMatchesRegexTA(author) && Validation.isMatchesRegexNSP(genre) && Validation.isMatchesRegexPrice(bailPrice) && Validation.isMatchesRegexPrice(rentalPrice);
     }
 
     public static boolean isMatchesRegexPrice(TextField value) {
         return value.getText().matches("^[0-9+]{0,3}$");
+    }
+
+    public static boolean isMatchesRegexTA(TextField value) {
+        return value.getText().matches("^[А-ЯЇҐЄІа-яїієґ ]{3,30}$");
     }
 
     public static boolean isMatchesRegexNSP(TextField value) {
