@@ -35,7 +35,7 @@ public class Validation {
     public static void addPriceValidation(TextField textField) {
         textField.textProperty().addListener((observableValue, oldValue, newValue) -> {
             if (newValue != null && !newValue.isEmpty()) {
-                if (newValue.matches("^[0-9+]{0,3}$")) {
+                if (newValue.matches("^[0-9+]{0,5}$")) {
                     textField.setStyle("-fx-border-color: green;");
                 } else {
                     textField.setStyle("-fx-border-color: red;");
