@@ -65,10 +65,6 @@ public class RecordService implements Service<Record> {
     }
 
     public void deleteUserRecords(int userId){
-        for (Record record : records.getData()) {
-            if(record.getUser().getId() == userId){
-                records.remove(record);
-            }
-        }
+        records.getData().removeIf(record -> record.getUser().getId() == userId);
     }
 }
