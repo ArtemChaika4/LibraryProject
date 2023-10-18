@@ -79,6 +79,9 @@ public class BooksController {
         sortList.setValue("За замовченням");
         booksTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         filter = new BookFilter(new BookService().getAll());
+        // TODO: вывод по статусам книг
+
+
         List<Book> bookList = filter.setHasStatus(BookStatus.AVAILABLE).select();
         ObservableList<Book> observableBookList = FXCollections.observableArrayList(bookList);
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #444654;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.edu.dnu.project.BooksController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #444654;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.edu.dnu.project.BooksController">
    <children>
       <TableView fx:id="booksTable" layoutX="15.0" layoutY="51.0" prefHeight="435.0" prefWidth="685.0" stylesheets="@style/table.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="55.0">
          <columns>
@@ -54,7 +54,7 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
          <graphic>
-            <FontAwesomeIcon fill="WHITE" glyphName="TRASH" size="20" wrappingWidth="5.428571701049805" />
+            <FontAwesomeIcon fill="WHITE" glyphName="ARROW_RIGHT" size="20" wrappingWidth="5.428571701049805" />
          </graphic>
       </Button>
    </children>

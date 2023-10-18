@@ -37,8 +37,6 @@ public class UsersController{
     private TextField searchField;
     UserFilter filter;
 
-
-
     @FXML
     public void Sort(){
         switch (sortList.getValue()){
@@ -73,6 +71,7 @@ public class UsersController{
             storage.users().delete(user.getId());
         }
     }
+
     @FXML
     private void initialize() throws IOException {
         ObservableList<String> sorts = FXCollections.observableArrayList("Ім'я", "Прізвище", "По батькові", "Адреса");

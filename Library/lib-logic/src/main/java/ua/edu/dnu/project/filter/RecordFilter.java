@@ -32,6 +32,10 @@ public class RecordFilter extends AbstractFilter<Record>{
                 String.valueOf(record.getDateOfReturn()).contains(value);
         return this;
     }
+    public RecordFilter setSortedByName(){
+        sortedBy = Comparator.comparing(record -> record.getUser().getName());
+        return this;
+    }
 
     public RecordFilter setSortedByTitle(){
         sortedBy = Comparator.comparing(record -> record.getBook().getTitle());

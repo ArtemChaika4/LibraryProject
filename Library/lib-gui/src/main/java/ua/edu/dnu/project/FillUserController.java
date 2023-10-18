@@ -26,22 +26,15 @@ public class FillUserController {
     private void addUser() {
         if (Validation.areAllValidatedFieldsUser(name, surname, patronymic, address, phone)) {
             User user = new User(surname.getText(), name.getText(), patronymic.getText(), address.getText(), "+38" + phone.getText());
-            //Storage strg = new Storage(); --> DEPRECATED
-            //strg.users().create(user);
-            //убрать в конце
-            //strg.save(); --> unnecessary
             UserService userService = new UserService();
             try {
                 userService.create(user);
                 MainPaneController.getInstance().setContent("users.fxml");
-            } catch (ServiceException e) {  //User already added
-                //view massage
+            } catch (ServiceException e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText(e.getMessage());
                 alert.showAndWait();
             }
-        } else {
-            return;
         }
     }
 

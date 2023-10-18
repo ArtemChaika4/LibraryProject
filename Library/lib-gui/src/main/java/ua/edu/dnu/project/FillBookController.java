@@ -22,26 +22,10 @@ public class FillBookController {
     @FXML
     private void addBook() {
         if (Validation.areAllValidatedFieldsBook(title, author, genre, bailPrice, rentalPrice)) {
-
             Book book = new Book(title.getText(), author.getText(), genre.getText(), Integer.parseInt(bailPrice.getText()), Integer.parseInt(rentalPrice.getText()), BookStatus.AVAILABLE);
-
-            //Storage strg = new Storage(); --> DEPRECATED
-            //strg.users().create(user);
-            //убрать в конце
-            //strg.save(); --> unnecessary
-
             BookService bookService = new BookService();
             bookService.create(book);
             MainPaneController.getInstance().setContent("books.fxml");
-
-//            } catch (ServiceException e) {  //User already added
-//                //view massage
-//                Alert alert = new Alert(Alert.AlertType.ERROR);
-//                alert.setContentText(e.getMessage());
-//                alert.showAndWait();
-//            }
-        } else {
-            return;
         }
     }
 

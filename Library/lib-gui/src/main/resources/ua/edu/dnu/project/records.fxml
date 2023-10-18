@@ -1,21 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.edu.dnu.project.RecordsController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #444654;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.edu.dnu.project.RecordsController">
    <children>
-      <TableView fx:id="recordsTable" layoutX="26.0" layoutY="59.0" prefHeight="282.0" prefWidth="556.0">
+      <TableView fx:id="recordsTable" layoutX="14.0" layoutY="56.0" prefHeight="313.0" prefWidth="660.0" stylesheets="@style/table.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="55.0">
         <columns>
-          <TableColumn fx:id="nameColumn" text="Ім'я" />
-          <TableColumn fx:id="surnameColumn" prefWidth="93.0" text="Прізвище" />
-            <TableColumn fx:id="booknameColumn" prefWidth="93.0" text="Назва книги" />
-            <TableColumn fx:id="dateOfBorrowColumn" prefWidth="106.0" text="Дата позичення" />
-            <TableColumn fx:id="dateOfReturnColumn" prefWidth="118.0" text="Дата повернення" />
-            <TableColumn fx:id="statusColumn" prefWidth="64.0" text="Статус" />
+          <TableColumn fx:id="nameColumn" prefWidth="65.0" sortable="false" style="-fx-text-fill: white;" text="Ім'я" />
+          <TableColumn fx:id="surnameColumn" prefWidth="102.0" sortable="false" style="-fx-text-fill: white;" text="Прізвище" />
+            <TableColumn fx:id="booknameColumn" prefWidth="104.0" sortable="false" style="-fx-text-fill: white;" text="Назва книги" />
+            <TableColumn fx:id="dateOfBorrowColumn" prefWidth="133.0" sortable="false" style="-fx-text-fill: white;" text="Дата позичення" />
+            <TableColumn fx:id="dateOfReturnColumn" prefWidth="135.0" sortable="false" style="-fx-text-fill: white;" text="Дата повернення" />
+            <TableColumn fx:id="statusColumn" prefWidth="135.0" sortable="false" style="-fx-text-fill: white;" text="Статус" />
         </columns>
       </TableView>
+      <Button layoutX="522.0" layoutY="14.0" mnemonicParsing="false" onAction="#ReturnBook" prefHeight="38.0" prefWidth="29.0" stylesheets="@style/btns.css" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <graphic>
+            <FontAwesomeIcon fill="WHITE" glyphName="ARROW_LEFT" size="25" />
+         </graphic></Button>
+      <TextField fx:id="searchField" layoutX="26.0" layoutY="14.0" prefHeight="35.0" prefWidth="300.0" promptText="Пошук" stylesheets="@style/btns.css" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </TextField>
+      <ComboBox fx:id="sortList" layoutX="332.0" layoutY="14.0" onAction="#Sort" prefHeight="35.0" prefWidth="140.0" stylesheets="@style/sort.css" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="10.0" />
    </children>
 </AnchorPane>

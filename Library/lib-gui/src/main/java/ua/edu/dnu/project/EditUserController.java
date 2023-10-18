@@ -18,7 +18,6 @@ public class EditUserController {
 
     private User user;
 
-    // add validation
     public void loadUser(User user) {
         this.user = user;
         name.setText(user.getName());
